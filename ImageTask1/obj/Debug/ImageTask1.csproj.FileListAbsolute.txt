@@ -1,0 +1,9 @@
+E:\Projects\ImageTask1\ImageTask1\bin\Debug\ImageTask1.exe.config
+E:\Projects\ImageTask1\ImageTask1\bin\Debug\ImageTask1.exe
+E:\Projects\ImageTask1\ImageTask1\bin\Debug\ImageTask1.pdb
+E:\Projects\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csprojResolveAssemblyReference.cache
+E:\Projects\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Form1.resources
+E:\Projects\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Properties.Resources.resources
+E:\Projects\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csproj.GenerateResource.Cache
+E:\Projects\ImageTask1\ImageTask1\obj\Debug\ImageTask1.exe
+E:\Projects\ImageTask1\ImageTask1\obj\Debug\ImageTask1.pdb
