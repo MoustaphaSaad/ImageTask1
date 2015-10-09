@@ -74,10 +74,10 @@ namespace ImageTask1
 
         public Image(uint width, uint height, uint components)
         {
-            m_buffer = new byte[width*height*components];
+            m_bitmap = new Bitmap((int)width,(int)height,PixelFormat.Format24bppRgb);
             m_width = width;
             m_height = height;
-            m_bitmap = new Bitmap((int)m_width, (int)m_height, PixelFormat.Format24bppRgb);
+            m_buffer = new byte[width*height*components];
             m_needFlush = true;
             m_components = components;
         }
@@ -149,14 +149,38 @@ namespace ImageTask1
             m_needFlush = true;
         }
 
-        private void flush()
+        public void flush()
         {
             //flush code
             unsafe
             {
-                BitmapData data = m_bitmap.LockBits(new Rectangle(0, 0, (int)m_width, (int)m_height), ImageLockMode.ReadWrite, m_bitmap.PixelFormat);
-                Marshal.Copy(m_buffer, 0, data.Scan0, m_buffer.Length);
-                m_bitmap.UnlockBits(data);
+                if (m_width*m_components%4 == 0)
+                {
+                    BitmapData data = m_bitmap.LockBits(new Rectangle(0, 0, (int) m_width, (int) m_height),
+                        ImageLockMode.WriteOnly, m_bitmap.PixelFormat);
+                    Marshal.Copy(m_buffer, 0, data.Scan0, m_buffer.Length);
+                    m_bitmap.UnlockBits(data);
+                }
+                else
+                {
+                    Color c = new Color();
+                    int r, g, b, a;
+                    int index;
+                    for (int x = 0; x < m_width; x++)
+                    {
+                        for (int y = 0; y < m_height; y++)
+                        {
+                            index = x + (int)(y*m_width);
+                            index *= (int)m_components;
+                            b = m_buffer[index];
+                            g = m_buffer[index+1];
+                            r = m_buffer[index + 2];
+                            c = Color.FromArgb(r, g, b);
+
+                            m_bitmap.SetPixel(x,y,c);
+                        }
+                    }
+                }
             }
             m_needFlush = false;
         }

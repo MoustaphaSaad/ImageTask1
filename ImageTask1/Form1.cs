@@ -24,7 +24,7 @@ namespace ImageTask1
 
             dialog.Title = "Open Image";
             dialog.Multiselect = false;
-            dialog.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" +
+            dialog.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF,*.PPM)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF;*.PPM|" +
                             "All files (.)|*.*";
             DialogResult result = dialog.ShowDialog();
 
@@ -36,6 +36,7 @@ namespace ImageTask1
 
                 if (img != null)
                 {
+                    /*
                     for (uint i = 0; i < img.Height; i++)
                     {
                         for (uint j = 0; j< img.Width; j++)
@@ -48,6 +49,7 @@ namespace ImageTask1
                             img.setPixel(j,i,p);
                         }
                     }
+                     */
                     pictureBox1.Image = img.bitmap;
                 }
                 else
