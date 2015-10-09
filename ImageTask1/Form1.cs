@@ -13,9 +13,11 @@ namespace ImageTask1
 {
     public partial class Form1 : Form
     {
+        private Image img;
         public Form1()
         {
             InitializeComponent();
+            img = null;
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -32,7 +34,7 @@ namespace ImageTask1
             {
                 string fileName = dialog.FileName;
 
-                Image img = ImageLoader.LoadImage(fileName);
+                img = ImageLoader.LoadImage(fileName);
 
                 if (img != null)
                 {
@@ -49,13 +51,35 @@ namespace ImageTask1
                             img.setPixel(j,i,p);
                         }
                     }
-                     */
+                    */
+                    
                     pictureBox1.Image = img.bitmap;
                 }
                 else
                 {
                     throw new IOException("Cannot load the image");
                 }
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (img == null)
+                return;
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Title = "Save Image";
+            dialog.Filter = "PNG|*.png|BMP|*.bmp|JPG|*.png|P3|*.p3|P6|*.p6|Any File|*.*";
+            DialogResult result = dialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                ImageLoader.SaveImage(dialog.FileName,img);
             }
         }
     }

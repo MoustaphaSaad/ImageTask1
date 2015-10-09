@@ -155,6 +155,76 @@ namespace ImageTask1
             return int.Parse(val);
         }
 
+        private static void save_P3(string file, Image img)
+        {
+            StreamWriter rw = new StreamWriter(new FileStream(file, FileMode.Create));
+
+            try
+            {
+                rw.Write("P3\n");
+                rw.Write("#saved by our software\n");
+
+                rw.Write(img.Width);
+                rw.Write(" ");
+                rw.Write(img.Height);
+                rw.Write("\n");
+
+                rw.Write("255\n");
+
+                for (uint i = 0; i < img.Buffer.Length; i+=3)
+                {
+                    rw.Write(img[i+2].ToString()+" ");
+                    rw.Write(img[i + 1].ToString()+" ");
+                    rw.Write(img[i].ToString());
+
+                    if(i+3 != img.Buffer.Length)
+                        rw.Write(" ");
+                }
+            }
+            finally
+            {
+                rw.Close();
+            }
+        }
+
+        private static void save_P6(string file, Image img)
+        {
+            StreamWriter rw = new StreamWriter(new FileStream(file, FileMode.Create));
+
+            try
+            {
+                rw.Write("P6\n");
+                rw.Write("#saved by our software\n");
+
+                rw.Write(img.Width);
+                rw.Write(" ");
+                rw.Write(img.Height);
+                rw.Write("\n");
+
+                rw.Write("255\n");
+            }
+            finally
+            {
+                rw.Close();
+            }
+
+            BinaryWriter bw = new BinaryWriter(new FileStream(file,FileMode.Append));
+
+            try
+            {
+                for (int i = 0; i < img.Buffer.Length; i += 3)
+                {
+                    bw.Write(img.Buffer[i+2]);
+                    bw.Write(img.Buffer[i + 1]);
+                    bw.Write(img.Buffer[i]);
+                }
+            }
+            finally
+            {
+                bw.Close();
+            }
+        }
+
         public static Image LoadImage(string filePath)
         {
             string ext = deduceEXT(filePath);
@@ -169,6 +239,34 @@ namespace ImageTask1
             {
                 Bitmap bitmap = new Bitmap(filePath);
                 return new Image(bitmap);
+            }
+        }
+
+        public static void SaveImage(string filePath, Image img)
+        {
+            string ext = deduceEXT(filePath);
+
+            if (ext.ToLower() == "p3")
+            {
+                //save P3
+                filePath = filePath.Replace("."+ext, ".ppm");
+                save_P3(filePath,img);
+            }else if (ext.ToLower() == "p6")
+            {
+                //save P6
+                filePath = filePath.Replace("." + ext, ".ppm");
+                save_P6(filePath, img);
+            }
+            else
+            {
+                if(ext.ToLower() == "jpg")
+                    img.bitmap.Save(filePath,ImageFormat.Jpeg);
+                else if(ext.ToLower() == "bmp")
+                    img.bitmap.Save(filePath, ImageFormat.Bmp);
+                else if(ext.ToLower() == "png")
+                    img.bitmap.Save(filePath, ImageFormat.Png);
+                else
+                    throw new Exception("unidentified image type");
             }
         }
     }
