@@ -53,6 +53,7 @@
     </Compile>
     <Compile Include="Image.cs" />
     <Compile Include="ImageLoader.cs" />
+    <Compile Include="ImageOperation.cs" />
     <Compile Include="Pixel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

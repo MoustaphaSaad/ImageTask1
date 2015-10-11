@@ -9,5 +9,13 @@ namespace ImageTask1
     struct Pixel
     {
         public byte R, G, B, A;
+
+        public Pixel(byte r, byte g, byte b, byte a)
+        {
+            R = r;
+            G = g;
+            B = b;
+            A = a;
+        }
     }
 }

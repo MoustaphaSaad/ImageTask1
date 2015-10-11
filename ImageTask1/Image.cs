@@ -90,24 +90,43 @@ namespace ImageTask1
             m_needFlush = false;
             m_bitmap = bmp;
 
+           if (bmp.PixelFormat == PixelFormat.Format24bppRgb)
+           {
+            m_components = 3;
+           }
+           else if (bmp.PixelFormat == PixelFormat.Format32bppArgb ||
+              bmp.PixelFormat == PixelFormat.Format32bppRgb ||
+              bmp.PixelFormat == PixelFormat.Format32bppPArgb)
+           {
+              m_components = 4;
+           }
             //load bytes
             unsafe
             {
-                BitmapData data = m_bitmap.LockBits(new Rectangle(0, 0, (int)m_width, (int)m_height), ImageLockMode.ReadWrite, bmp.PixelFormat);
-
-                if (bmp.PixelFormat == PixelFormat.Format24bppRgb)
+                if (m_width*m_components%4 == 0)
                 {
-                    m_components = 3;
+                    BitmapData data = m_bitmap.LockBits(new Rectangle(0, 0, (int) m_width, (int) m_height),
+                        ImageLockMode.ReadWrite, bmp.PixelFormat);
+
+
+                    m_buffer = new byte[m_width*m_height*m_components];
+
+                    Marshal.Copy(data.Scan0, m_buffer, 0, m_buffer.Length);
+                    m_bitmap.UnlockBits(data);
                 }
-                else if (bmp.PixelFormat == PixelFormat.Format32bppArgb || bmp.PixelFormat == PixelFormat.Format32bppRgb || bmp.PixelFormat == PixelFormat.Format32bppPArgb)
+                else
                 {
-                    m_components = 4;
+                    m_buffer = new byte[m_width*m_height*m_components];
+                    for (int i = 0; i < m_bitmap.Height; i++)
+                    {
+                        for (int j = 0; j < m_bitmap.Width; j++)
+                        {
+                            Color p = m_bitmap.GetPixel(j, i);
+                            Pixel np = new Pixel(p.B, p.G, p.R, p.A);
+                            setPixel((uint)j,(uint)i,np);
+                        }
+                    }
                 }
-
-                m_buffer = new byte[m_width*m_height*m_components];
-
-                Marshal.Copy(data.Scan0,m_buffer,0,m_buffer.Length);
-                m_bitmap.UnlockBits(data);
             }
         }
 
@@ -183,6 +202,16 @@ namespace ImageTask1
                 }
             }
             m_needFlush = false;
+        }
+
+        public Image Clone()
+        {
+            Image res = new Image(Width, Height, Components);
+            res.m_buffer = new byte[m_buffer.Length];
+            for (uint i = 0; i < m_buffer.Length; i++)
+                res.m_buffer[i] = m_buffer[i];
+            res.m_bitmap = m_bitmap.Clone(new Rectangle(0,0,(int)Width,(int)Height),m_bitmap.PixelFormat);
+            return res;
         }
 
 

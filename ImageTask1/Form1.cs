@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace ImageTask1
 {
     public partial class Form1 : Form
     {
+        private Image tmp;
         private Image img;
         public Form1()
         {
@@ -32,10 +34,11 @@ namespace ImageTask1
 
             if (result == DialogResult.OK)
             {
-                string fileName = dialog.FileName;
+                string path = dialog.FileName;
 
-                img = ImageLoader.LoadImage(fileName);
+                img = ImageLoader.LoadImage(path);
 
+                tmp = img;
                 if (img != null)
                 {
                     /*
@@ -83,20 +86,11 @@ namespace ImageTask1
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Apply_Click(object sender, EventArgs e)
         {
-            //shearing
-            img.ShearImage(-0.5, 0);
-            pictureBox1.Image = img.bitmap;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            // rotating
-
-            img.RotateImage(180);
-            pictureBox1.Image = img.bitmap;
-
+            tmp = img.Clone();
+            tmp = ImageOperation.RotateImage(tmp, (int)rotation.Value, (float)shearX.Value, (float)shearY.Value, (float)scaleX.Value, (float)scaleY.Value);
+            pictureBox1.Image = tmp.bitmap;
         }
     }
 }
