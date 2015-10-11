@@ -82,5 +82,21 @@ namespace ImageTask1
                 ImageLoader.SaveImage(dialog.FileName,img);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //shearing
+            img.ShearImage(-0.5, 0);
+            pictureBox1.Image = img.bitmap;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // rotating
+
+            img.RotateImage(180);
+            pictureBox1.Image = img.bitmap;
+
+        }
     }
 }

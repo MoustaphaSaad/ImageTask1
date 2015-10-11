@@ -7,3 +7,12 @@ E:\Projects\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Properties.Resources.reso
 E:\Projects\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csproj.GenerateResource.Cache
 E:\Projects\ImageTask1\ImageTask1\obj\Debug\ImageTask1.exe
 E:\Projects\ImageTask1\ImageTask1\obj\Debug\ImageTask1.pdb
+D:\GitHub\ImageTask1\ImageTask1\bin\Debug\ImageTask1.exe.config
+D:\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.exe
+D:\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.pdb
+D:\GitHub\ImageTask1\ImageTask1\bin\Debug\ImageTask1.exe
+D:\GitHub\ImageTask1\ImageTask1\bin\Debug\ImageTask1.pdb
+D:\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csprojResolveAssemblyReference.cache
+D:\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Form1.resources
+D:\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Properties.Resources.resources
+D:\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csproj.GenerateResource.Cache

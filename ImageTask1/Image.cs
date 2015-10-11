@@ -184,6 +184,302 @@ namespace ImageTask1
             }
             m_needFlush = false;
         }
+
+
+
+
+
+
+
+
+        public Point ShearXY(Point source, double shearX, double shearY)
+        {
+            Point result = new Point();
+
+            result.X = (int)(Math.Round(source.X + shearX * source.Y));
+            result.X -= (int)Math.Round(m_width * shearX / 2.0); ;
+
+            result.Y = (int)(Math.Round(source.Y + shearY * source.X));
+            result.Y -= (int)Math.Round(m_height * shearY / 2.0);
+
+            return result;
+        }
+
+        public Bitmap ShearImage(double shearX, double shearY)
+        {
+
+
+            BitmapData sourceData = m_bitmap.LockBits(new Rectangle(0, 0, (int)m_width, (int)m_height),
+                                          ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+
+            byte[] pixelBuffer = new byte[sourceData.Stride * sourceData.Height];
+
+            byte[] resultBuffer = new byte[sourceData.Stride * sourceData.Height];
+
+            Marshal.Copy(sourceData.Scan0, pixelBuffer, 0, pixelBuffer.Length);
+
+            m_bitmap.UnlockBits(sourceData);
+
+
+
+            int sourceXY = 0;
+            int resultXY = 0;
+
+            Point sourcePoint = new Point();
+            Point resultPoint = new Point();
+
+
+            Rectangle imageBounds = new Rectangle(0, 0, (int)m_width, (int)m_height);
+
+            for (int row = 0; row < (int)m_height; row++)
+            {
+                for (int col = 0; col < (int)m_width; col++)
+                {
+
+                    /*
+                        int bitsPerPixel = ((int)format & 0xff00) >> 8;
+                        int bytesPerPixel = (bitsPerPixel + 7) / 8;
+                        int stride = 4 * ((width * bytesPerPixel + 3) / 4);
+                     */
+
+
+                    sourceXY = row * sourceData.Stride + col * 4;
+
+                    sourcePoint.X = col;
+                    sourcePoint.Y = row;
+
+                    if (sourceXY >= 0 && sourceXY + 3 < pixelBuffer.Length)
+                    {
+
+
+                        resultPoint = ShearXY(sourcePoint, shearX, shearY);
+
+
+                        resultXY = resultPoint.Y * sourceData.Stride + resultPoint.X * 4;
+
+
+
+                        if (imageBounds.Contains(resultPoint) && resultXY >= 0)
+                        {
+
+
+
+                            if (resultXY + 6 <= resultBuffer.Length)
+                            {
+                                resultBuffer[resultXY + 4] =
+                                     pixelBuffer[sourceXY];
+
+                                resultBuffer[resultXY + 5] =
+                                     pixelBuffer[sourceXY + 1];
+
+                                resultBuffer[resultXY + 6] =
+                                     pixelBuffer[sourceXY + 2];
+
+                                resultBuffer[resultXY + 7] = 255;
+                            }
+
+
+
+                            if (resultXY - 3 >= 0)
+                            {
+                                resultBuffer[resultXY - 4] =
+                                     pixelBuffer[sourceXY];
+
+                                resultBuffer[resultXY - 3] =
+                                     pixelBuffer[sourceXY + 1];
+
+                                resultBuffer[resultXY - 2] =
+                                     pixelBuffer[sourceXY + 2];
+
+                                resultBuffer[resultXY - 1] = 255;
+                            }
+
+
+
+                            if (resultXY + 3 < resultBuffer.Length)
+                            {
+                                resultBuffer[resultXY] =
+                                 pixelBuffer[sourceXY];
+
+                                resultBuffer[resultXY + 1] =
+                                 pixelBuffer[sourceXY + 1];
+
+                                resultBuffer[resultXY + 2] =
+                                 pixelBuffer[sourceXY + 2];
+
+                                resultBuffer[resultXY + 3] = 255;
+                            }
+
+                        }
+
+                    }
+                }
+            }
+
+
+
+            BitmapData resultData =
+                     m_bitmap.LockBits(new Rectangle(0, 0, m_bitmap.Width, m_bitmap.Height),
+                      ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+            Marshal.Copy(resultBuffer, 0, resultData.Scan0, resultBuffer.Length);
+
+            m_bitmap.UnlockBits(resultData);
+
+
+            return null;
+        }
+
+
+
+
+
+
+        public Point RotateXY(Point source, double degrees)
+        {
+            Point result = new Point();
+
+            result.X = (int)(Math.Round((source.X - (int)(m_width / 2.0)) *
+                       Math.Cos(degrees) - (source.Y - (int)(m_height / 2.0)) *
+                       Math.Sin(degrees))) + (int)(m_width / 2.0);
+
+            result.Y = (int)(Math.Round((source.X - (int)(m_width / 2.0)) *
+                       Math.Sin(degrees) + (source.Y - (int)(m_width / 2.0)) *
+                       Math.Cos(degrees))) + (int)(m_height / 2.0);
+
+            return result;
+        }
+
+        public Bitmap RotateImage(double degree)
+        {
+            BitmapData sourceData =
+                       m_bitmap.LockBits(new Rectangle(0, 0, (int)m_width, (int)m_height),
+                       ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+
+            byte[] pixelBuffer = new byte[sourceData.Stride * sourceData.Height];
+
+            byte[] resultBuffer = new byte[sourceData.Stride * sourceData.Height];
+
+            Marshal.Copy(sourceData.Scan0, pixelBuffer, 0, pixelBuffer.Length);
+
+            m_bitmap.UnlockBits(sourceData);
+
+
+            //Convert to Radians
+            degree = degree * Math.PI / 180.0;
+
+            int sourceXY = 0;
+            int resultXY = 0;
+
+            Point sourcePoint = new Point();
+            Point resultPoint = new Point();
+
+            Rectangle imageBounds = new Rectangle(0, 0, (int)m_width, (int)m_height);
+
+            for (int row = 0; row < m_height; row++)
+            {
+                for (int col = 0; col < m_width; col++)
+                {
+                    sourceXY = row * sourceData.Stride + col * 4;
+
+                    sourcePoint.X = col;
+                    sourcePoint.Y = row;
+
+                    if (sourceXY >= 0 && sourceXY + 3 < pixelBuffer.Length)
+                    {
+                        //Calculate Blue Rotation
+
+                        resultPoint = RotateXY(sourcePoint, degree);
+
+                        resultXY = (int)(Math.Round((resultPoint.Y * sourceData.Stride) + (resultPoint.X * 4.0)));
+
+                        if (imageBounds.Contains(resultPoint) && resultXY >= 0)
+                        {
+                            if (resultXY + 6 < resultBuffer.Length)
+                            {
+                                resultBuffer[resultXY + 4] = pixelBuffer[sourceXY];
+
+                                resultBuffer[resultXY + 7] = 255;
+                            }
+
+                            if (resultXY + 3 < resultBuffer.Length)
+                            {
+                                resultBuffer[resultXY] = pixelBuffer[sourceXY];
+
+                                resultBuffer[resultXY + 3] = 255;
+                            }
+                        }
+
+                        //Calculate Green Rotation
+
+                        resultPoint = RotateXY(sourcePoint, degree);
+
+                        resultXY = (int)(Math.Round((resultPoint.Y * sourceData.Stride) + (resultPoint.X * 4.0)));
+
+                        if (imageBounds.Contains(resultPoint) && resultXY >= 0)
+                        {
+                            if (resultXY + 6 < resultBuffer.Length)
+                            {
+                                resultBuffer[resultXY + 5] =
+                                 pixelBuffer[sourceXY + 1];
+
+                                resultBuffer[resultXY + 7] = 255;
+                            }
+
+                            if (resultXY + 3 < resultBuffer.Length)
+                            {
+                                resultBuffer[resultXY + 1] =
+                                 pixelBuffer[sourceXY + 1];
+
+                                resultBuffer[resultXY + 3] = 255;
+                            }
+                        }
+
+                        //Calculate Red Rotation
+
+                        resultPoint = RotateXY(sourcePoint, degree);
+
+                        resultXY = (int)(Math.Round((resultPoint.Y * sourceData.Stride) + (resultPoint.X * 4.0)));
+
+                        if (imageBounds.Contains(resultPoint) && resultXY >= 0)
+                        {
+                            if (resultXY + 6 < resultBuffer.Length)
+                            {
+                                resultBuffer[resultXY + 6] =
+                                 pixelBuffer[sourceXY + 2];
+
+                                resultBuffer[resultXY + 7] = 255;
+                            }
+
+                            if (resultXY + 3 < resultBuffer.Length)
+                            {
+                                resultBuffer[resultXY + 2] =
+                                 pixelBuffer[sourceXY + 2];
+
+                                resultBuffer[resultXY + 3] = 255;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            BitmapData resultData = m_bitmap.LockBits(new Rectangle(0, 0, (int)m_width, (int)m_height),
+                       ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+            Marshal.Copy(resultBuffer, 0, resultData.Scan0, resultBuffer.Length);
+
+            m_bitmap.UnlockBits(resultData);
+
+            return null;
+        }
+
+
+
+
+
+
+
     }
 }
 
