@@ -46,6 +46,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.scaleY = new System.Windows.Forms.NumericUpDown();
             this.scaleX = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.GrayScale = new System.Windows.Forms.Button();
+            this.BrightnessSlider = new System.Windows.Forms.TrackBar();
+            this.Brightness = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -57,14 +63,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.shearX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scaleY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scaleX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BrightnessSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 16);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(705, 384);
+            this.pictureBox1.Size = new System.Drawing.Size(410, 416);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -75,7 +82,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(875, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1039, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -118,6 +125,9 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.Brightness);
+            this.splitContainer1.Panel1.Controls.Add(this.BrightnessSlider);
+            this.splitContainer1.Panel1.Controls.Add(this.GrayScale);
             this.splitContainer1.Panel1.Controls.Add(this.Apply);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.rotation);
@@ -132,9 +142,12 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.label7);
+            this.splitContainer1.Panel2.Controls.Add(this.label6);
+            this.splitContainer1.Panel2.Controls.Add(this.pictureBox2);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(875, 384);
-            this.splitContainer1.SplitterDistance = 166;
+            this.splitContainer1.Size = new System.Drawing.Size(1039, 470);
+            this.splitContainer1.SplitterDistance = 196;
             this.splitContainer1.TabIndex = 4;
             // 
             // Apply
@@ -237,11 +250,69 @@
             0,
             0});
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(416, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "After";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Before";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(426, 16);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(410, 416);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // GrayScale
+            // 
+            this.GrayScale.Location = new System.Drawing.Point(12, 184);
+            this.GrayScale.Name = "GrayScale";
+            this.GrayScale.Size = new System.Drawing.Size(142, 23);
+            this.GrayScale.TabIndex = 11;
+            this.GrayScale.Text = "GrayScale";
+            this.GrayScale.UseVisualStyleBackColor = true;
+            this.GrayScale.Click += new System.EventHandler(this.GrayScale_Click);
+            // 
+            // BrightnessSlider
+            // 
+            this.BrightnessSlider.LargeChange = 15;
+            this.BrightnessSlider.Location = new System.Drawing.Point(3, 213);
+            this.BrightnessSlider.Maximum = 255;
+            this.BrightnessSlider.Minimum = -255;
+            this.BrightnessSlider.Name = "BrightnessSlider";
+            this.BrightnessSlider.Size = new System.Drawing.Size(190, 45);
+            this.BrightnessSlider.SmallChange = 5;
+            this.BrightnessSlider.TabIndex = 12;
+            // 
+            // Brightness
+            // 
+            this.Brightness.Location = new System.Drawing.Point(12, 251);
+            this.Brightness.Name = "Brightness";
+            this.Brightness.Size = new System.Drawing.Size(142, 23);
+            this.Brightness.TabIndex = 13;
+            this.Brightness.Text = "Brightness";
+            this.Brightness.UseVisualStyleBackColor = true;
+            this.Brightness.Click += new System.EventHandler(this.Brightness_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 408);
+            this.ClientSize = new System.Drawing.Size(1039, 494);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -253,6 +324,7 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rotation)).EndInit();
@@ -260,6 +332,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.shearX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scaleY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scaleX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BrightnessSlider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,6 +359,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown scaleY;
         private System.Windows.Forms.NumericUpDown scaleX;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button GrayScale;
+        private System.Windows.Forms.Button Brightness;
+        private System.Windows.Forms.TrackBar BrightnessSlider;
     }
 }
 

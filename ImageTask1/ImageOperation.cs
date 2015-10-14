@@ -13,7 +13,7 @@ namespace ImageTask1
     {
 
 
-        public static Image RotateImage(Image img, float theta,float shearx, float sheary, float scalex, float scaley)
+        public static Image TransformImage(Image img, float theta,float shearx, float sheary, float scalex, float scaley)
         {
             var rd_theta =(float)( theta * Math.PI / 180.0);
             float cos_theta = (float)Math.Cos(rd_theta);
@@ -111,6 +111,47 @@ namespace ImageTask1
                 }
             }
             
+            return result;
+        }
+        public static Image GreyScale(Image img)
+        {
+            Image result = new Image(img.Width , img.Height,img.Components);
+            for (uint i = 0; i < img.Height; ++i)
+            {
+                for (uint j = 0; j < img.Width; ++j)
+                {
+                    Pixel p = img.getPixel(j, i);
+                    byte grayscale =(byte) ((p.R + p.G + p.B) / 3);
+                    p.R = grayscale;
+                    p.G = grayscale;
+                    p.B = grayscale;
+                    result.setPixel(j, i, p);
+                }
+            }
+                return result;
+        }
+        private static int BrightnessBound(int value)
+        {
+            if (value > 255)
+                return 255;
+            else if (value < 0)
+                return 0;
+            return value;
+        }
+        public static Image Brightness(Image img , int value)
+        {
+            Image result = new Image(img.Width, img.Height, img.Components);
+            for (uint i = 0; i < img.Height; ++i)
+            {
+                for (uint j = 0; j < img.Width; ++j)
+                {
+                    Pixel p = img.getPixel(j, i);   
+                    p.R = (byte)BrightnessBound((int)p.R + value);
+                    p.G = (byte)BrightnessBound((int)p.G + value);
+                    p.B = (byte)BrightnessBound((int)p.B + value);
+                    result.setPixel(j, i, p);
+                }
+            }
             return result;
         }
     }

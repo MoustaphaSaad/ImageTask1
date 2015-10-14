@@ -41,21 +41,6 @@ namespace ImageTask1
                 tmp = img;
                 if (img != null)
                 {
-                    /*
-                    for (uint i = 0; i < img.Height; i++)
-                    {
-                        for (uint j = 0; j< img.Width; j++)
-                        {
-                            Pixel p = img.getPixel(j, i);
-                            byte val = (byte)((p.R + p.G + p.B)/(3));
-                            p.R = val;
-                            p.G = val;
-                            p.B = val;
-                            img.setPixel(j,i,p);
-                        }
-                    }
-                    */
-                    
                     pictureBox1.Image = img.bitmap;
                 }
                 else
@@ -89,8 +74,23 @@ namespace ImageTask1
         private void Apply_Click(object sender, EventArgs e)
         {
             tmp = img.Clone();
-            tmp = ImageOperation.RotateImage(tmp, (int)rotation.Value, (float)shearX.Value, (float)shearY.Value, (float)scaleX.Value, (float)scaleY.Value);
+            tmp = ImageOperation.TransformImage(tmp, (int)rotation.Value, (float)shearX.Value, (float)shearY.Value, (float)scaleX.Value, (float)scaleY.Value);
             pictureBox1.Image = tmp.bitmap;
         }
+
+        private void GrayScale_Click(object sender, EventArgs e)
+        {
+            tmp = img.Clone();
+            tmp = ImageOperation.GreyScale(tmp);
+            pictureBox2.Image = tmp.bitmap;
+        }
+
+        private void Brightness_Click(object sender, EventArgs e)
+        {
+            tmp = img.Clone();
+            tmp = ImageOperation.Brightness(tmp , Convert.ToInt32(BrightnessSlider.Value));
+            pictureBox2.Image = tmp.bitmap;
+        }
+
     }
 }
