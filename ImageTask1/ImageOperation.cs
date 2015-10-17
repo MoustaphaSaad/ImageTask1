@@ -154,5 +154,197 @@ namespace ImageTask1
             }
             return result;
         }
+
+        public static Image Invert(Image img)
+        {
+            for (uint i = 0; i < img.Height; i++)
+            {
+                for (uint j = 0; j < img.Width; j++)
+                {
+                    Pixel p = img.getPixel(j, i);
+                    p.R = (byte)(255 - p.R);
+                    p.G = (byte)(255 - p.G);
+                    p.B = (byte)(255 - p.B);
+                    img.setPixel(j, i, p);
+                }
+            }
+            return img;
+        }
+
+        public static Image Add(Image img1, Image img2, double fraction)
+        {
+            uint s1 = img1.Height*img1.Width;
+            uint s2 = img2.Height*img2.Width;
+
+            if (s1 > s2)
+            {
+                //resize
+                img2 = TransformImage(img2, 0, 0, 0, (float) img1.Width/(float) img2.Width,
+                    (float) img1.Height/(float) img2.Height);
+            }
+            else if(s1<s2)
+            {
+                //resize
+                img1 = TransformImage(img1, 0, 0, 0, (float)img2.Width / (float)img1.Width,
+                    (float)img2.Height / (float)img1.Height);
+            }
+
+            Image result = img1.Clone();
+
+            for (uint i = 0; i < img1.Height; i++)
+            {
+                for (uint j = 0; j < img1.Width; j++)
+                {
+                    Pixel p1 = img1.getPixel(j, i);
+                    Pixel p2 = img2.getPixel(j, i);
+
+                    Pixel res = new Pixel();
+                    res.R =(byte)( p1.R*fraction + p2.R*(1 - fraction));
+                    res.G = (byte)(p1.G * fraction + p2.G * (1 - fraction));
+                    res.B = (byte)(p1.B * fraction + p2.B * (1 - fraction));
+
+                    result.setPixel(j,i,res);
+                }
+            }
+
+            return result;
+        }
+
+        public static Image Subtract(Image img1, Image img2)
+        {
+            uint s1 = img1.Height * img1.Width;
+            uint s2 = img2.Height * img2.Width;
+
+            if (s1 > s2)
+            {
+                //resize
+                img2 = TransformImage(img2, 0, 0, 0, (float)img1.Width / (float)img2.Width,
+                    (float)img1.Height / (float)img2.Height);
+            }
+            else if (s1 < s2)
+            {
+                //resize
+                img1 = TransformImage(img1, 0, 0, 0, (float)img2.Width / (float)img1.Width,
+                    (float)img2.Height / (float)img1.Height);
+            }
+
+            Image result = img1.Clone();
+
+            for (uint i = 0; i < img1.Height; i++)
+            {
+                for (uint j = 0; j < img1.Width; j++)
+                {
+                    Pixel p1 = img1.getPixel(j, i);
+                    Pixel p2 = img2.getPixel(j, i);
+
+                    double p1_r, p2_r, p1_g, p2_g, p1_b, p2_b;
+
+                    p1_r = p1.R / 255.0f;
+                    p1_g = p1.G / 255.0f;
+                    p1_b = p1.B / 255.0f;
+
+                    p2_r = p2.R / 255.0f;
+                    p2_g = p2.G / 255.0f;
+                    p2_b = p2.B / 255.0f;
+
+                    double rr, rg, rb;
+
+                    rr = p1_r - p2_r;
+                    rg = p1_g - p2_g;
+                    rb = p1_b - p2_b;
+
+                    Pixel res = new Pixel();
+                    res.R = (byte)(Math.Min(0, rr * 255));
+                    res.G = (byte)(Math.Min(0, rg * 255));
+                    res.B = (byte)(Math.Min(0, rb * 255));
+
+                    result.setPixel(j, i, res);
+                }
+            }
+
+            return result;
+        }
+
+        public static void BitSlice(Image img, int bit, out Image r, out Image g, out Image b)
+        {
+            r = new Image(img.Width,img.Height,img.Components);
+            g = new Image(img.Width, img.Height, img.Components);
+            b = new Image(img.Width, img.Height, img.Components);
+
+            int mask = 1;
+            mask <<= bit;
+
+            for (uint i = 0; i < img.Height; i++)
+            {
+                for (uint j = 0; j < img.Width; j++)
+                {
+                    Pixel p = img.getPixel(j, i);
+
+                    int resR = p.R & mask;
+                    int resG = p.G & mask;
+                    int resB = p.B & mask;
+
+                    if (resR > 0)
+                    {
+                        r.setPixel(j, i, new Pixel(255, 255, 255, 255));
+                    }
+                    else
+                    {
+                        r.setPixel(j, i, new Pixel(0, 0, 0, 0));
+                    }
+
+                    if (resG > 0)
+                    {
+                        g.setPixel(j, i, new Pixel(255, 255, 255, 255));
+                    }
+                    else
+                    {
+                        g.setPixel(j, i, new Pixel(0, 0, 0, 0));
+                    }
+
+                    if (resB > 0)
+                    {
+                        b.setPixel(j, i, new Pixel(255, 255, 255, 255));
+                    }
+                    else
+                    {
+                        b.setPixel(j, i, new Pixel(0, 0, 0, 0));
+                    }
+                }
+            }
+        }
+
+        public static Image Quantize(Image img, int bit)
+        {
+            bit = 8 - bit;
+            int mask = int.MaxValue;
+            for (int i = 0; i < bit; i++)
+            {
+                mask -= 1;
+                mask <<= 1;
+            }
+
+            for (uint i = 0; i < img.Height; i++)
+            {
+                for (uint j = 0; j < img.Width; j++)
+                {
+                    Pixel p = img.getPixel(j, i);
+
+                    int resR = p.R & mask;
+                    int resG = p.G & mask;
+                    int resB = p.B & mask;
+
+                    Pixel res = new Pixel();
+                    res.R = (byte)resR;
+                    res.B = (byte)resB;
+                    res.G = (byte)resG;
+
+                    img.setPixel(j,i,res);
+                }
+            }
+            return img;
+        }
+
+
     }
 }

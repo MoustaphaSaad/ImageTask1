@@ -95,10 +95,14 @@ namespace ImageTask1
             m_components = 3;
            }
            else if (bmp.PixelFormat == PixelFormat.Format32bppArgb ||
-              bmp.PixelFormat == PixelFormat.Format32bppRgb ||
-              bmp.PixelFormat == PixelFormat.Format32bppPArgb)
+                    bmp.PixelFormat == PixelFormat.Format32bppRgb ||
+                    bmp.PixelFormat == PixelFormat.Format32bppPArgb)
            {
-              m_components = 4;
+               m_components = 4;
+           }
+           else if(bmp.PixelFormat == PixelFormat.Format8bppIndexed)
+           {
+               m_components = 1;
            }
             //load bytes
             unsafe
@@ -138,15 +142,24 @@ namespace ImageTask1
 
             index *= m_components;
 
+            if (m_components != 1)
+            {
+                result.R = m_buffer[index];
+                result.G = m_buffer[index + 1];
+                result.B = m_buffer[index + 2];
 
-            result.R = m_buffer[index];
-            result.G = m_buffer[index+1];
-            result.B = m_buffer[index+2];
-
-            if(m_components == 4)
-                result.A = m_buffer[index+3];
+                if (m_components == 4)
+                    result.A = m_buffer[index + 3];
+                else
+                    result.A = 255;
+            }
             else
-                result.A = 255;
+            {
+                result.R = m_buffer[index];
+                result.G = m_buffer[index];
+                result.B = m_buffer[index];
+                result.A = m_buffer[index];
+            }
 
             return result;
         }
@@ -158,12 +171,19 @@ namespace ImageTask1
 
             index *= m_components;
 
-            m_buffer[index] = p.R;
-            m_buffer[index+1] = p.G;
-            m_buffer[index+2] = p.B;
+            if (m_components != 1)
+            {
+                m_buffer[index] = p.R;
+                m_buffer[index + 1] = p.G;
+                m_buffer[index + 2] = p.B;
 
-            if (m_components == 4)
-                m_buffer[index + 3] = p.A;
+                if (m_components == 4)
+                    m_buffer[index + 3] = p.A;
+            }
+            else
+            {
+                m_buffer[index] = p.R;
+            }
 
             m_needFlush = true;
         }
