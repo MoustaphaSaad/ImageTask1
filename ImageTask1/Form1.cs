@@ -255,5 +255,15 @@ namespace ImageTask1
             generateHistogram(tmp,chart2);
         }
 
+        private void Gamma_Click(object sender, EventArgs e)
+        {
+            if (img == null)
+                return;
+            tmp = img.Clone();
+            tmp = ImageOperation.GammaCorrection(tmp, Convert.ToDouble(GammaValue.Text));
+            pictureBox2.Image = tmp.bitmap;
+            generateHistogram(tmp, chart2);
+        }
+
     }
 }

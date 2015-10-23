@@ -28,23 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea18 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series69 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series70 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series71 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series72 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea17 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series65 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series66 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series67 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series68 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openImage2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.button5 = new System.Windows.Forms.Button();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
             this.Brightness = new System.Windows.Forms.Button();
             this.BrightnessSlider = new System.Windows.Forms.TrackBar();
             this.GrayScale = new System.Windows.Forms.Button();
@@ -59,61 +68,55 @@
             this.label1 = new System.Windows.Forms.Label();
             this.scaleY = new System.Windows.Forms.NumericUpDown();
             this.scaleX = new System.Windows.Forms.NumericUpDown();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Red = new System.Windows.Forms.TabPage();
+            this.TabRed = new System.Windows.Forms.PictureBox();
+            this.Green = new System.Windows.Forms.TabPage();
+            this.TabGreen = new System.Windows.Forms.PictureBox();
+            this.Blue = new System.Windows.Forms.TabPage();
+            this.TabBlue = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.BlueFlag = new System.Windows.Forms.CheckBox();
+            this.GreenFlag = new System.Windows.Forms.CheckBox();
+            this.RedFlag = new System.Windows.Forms.CheckBox();
+            this.IntensityFlag = new System.Windows.Forms.CheckBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.IntensityFlag = new System.Windows.Forms.CheckBox();
-            this.RedFlag = new System.Windows.Forms.CheckBox();
-            this.GreenFlag = new System.Windows.Forms.CheckBox();
-            this.BlueFlag = new System.Windows.Forms.CheckBox();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.openImage2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.Red = new System.Windows.Forms.TabPage();
-            this.Green = new System.Windows.Forms.TabPage();
-            this.Blue = new System.Windows.Forms.TabPage();
-            this.TabRed = new System.Windows.Forms.PictureBox();
-            this.TabGreen = new System.Windows.Forms.PictureBox();
-            this.TabBlue = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.button5 = new System.Windows.Forms.Button();
+            this.GammaValue = new System.Windows.Forms.NumericUpDown();
+            this.Gamma = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BrightnessSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shearY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shearX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scaleY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scaleX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.Red.SuspendLayout();
-            this.Green.SuspendLayout();
-            this.Blue.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TabRed)).BeginInit();
+            this.Green.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TabGreen)).BeginInit();
+            this.Blue.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TabBlue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GammaValue)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -149,21 +152,28 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // openImage2ToolStripMenuItem
+            // 
+            this.openImage2ToolStripMenuItem.Name = "openImage2ToolStripMenuItem";
+            this.openImage2ToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.openImage2ToolStripMenuItem.Text = "Open Image2";
+            this.openImage2ToolStripMenuItem.Click += new System.EventHandler(this.openImage2ToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -175,6 +185,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.Gamma);
+            this.splitContainer1.Panel1.Controls.Add(this.GammaValue);
             this.splitContainer1.Panel1.Controls.Add(this.numericUpDown3);
             this.splitContainer1.Panel1.Controls.Add(this.button5);
             this.splitContainer1.Panel1.Controls.Add(this.numericUpDown2);
@@ -218,6 +230,98 @@
             this.splitContainer1.Size = new System.Drawing.Size(1295, 659);
             this.splitContainer1.SplitterDistance = 244;
             this.splitContainer1.TabIndex = 4;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(12, 399);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(49, 20);
+            this.numericUpDown3.TabIndex = 22;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(67, 396);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(87, 23);
+            this.button5.TabIndex = 21;
+            this.button5.Text = "Quantize";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(12, 370);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(49, 20);
+            this.numericUpDown2.TabIndex = 20;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(67, 367);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(87, 23);
+            this.button4.TabIndex = 19;
+            this.button4.Text = "Bit Slice";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(12, 338);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(142, 23);
+            this.button3.TabIndex = 18;
+            this.button3.Text = "Subtract";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(67, 309);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(87, 23);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Add";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.DecimalPlaces = 3;
+            this.numericUpDown1.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            196608});
+            this.numericUpDown1.Location = new System.Drawing.Point(12, 310);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(49, 20);
+            this.numericUpDown1.TabIndex = 15;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 280);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(142, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Invert";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Brightness
             // 
@@ -350,6 +454,214 @@
             0,
             0});
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.Red);
+            this.tabControl1.Controls.Add(this.Green);
+            this.tabControl1.Controls.Add(this.Blue);
+            this.tabControl1.Location = new System.Drawing.Point(426, 319);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(411, 328);
+            this.tabControl1.TabIndex = 14;
+            // 
+            // Red
+            // 
+            this.Red.Controls.Add(this.TabRed);
+            this.Red.Location = new System.Drawing.Point(4, 22);
+            this.Red.Name = "Red";
+            this.Red.Size = new System.Drawing.Size(403, 302);
+            this.Red.TabIndex = 0;
+            this.Red.Text = "Red";
+            this.Red.UseVisualStyleBackColor = true;
+            // 
+            // TabRed
+            // 
+            this.TabRed.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabRed.Location = new System.Drawing.Point(0, 0);
+            this.TabRed.Name = "TabRed";
+            this.TabRed.Size = new System.Drawing.Size(403, 302);
+            this.TabRed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.TabRed.TabIndex = 0;
+            this.TabRed.TabStop = false;
+            // 
+            // Green
+            // 
+            this.Green.Controls.Add(this.TabGreen);
+            this.Green.Location = new System.Drawing.Point(4, 22);
+            this.Green.Name = "Green";
+            this.Green.Size = new System.Drawing.Size(403, 302);
+            this.Green.TabIndex = 1;
+            this.Green.Text = "Green";
+            this.Green.UseVisualStyleBackColor = true;
+            // 
+            // TabGreen
+            // 
+            this.TabGreen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabGreen.Location = new System.Drawing.Point(0, 0);
+            this.TabGreen.Name = "TabGreen";
+            this.TabGreen.Size = new System.Drawing.Size(403, 302);
+            this.TabGreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.TabGreen.TabIndex = 1;
+            this.TabGreen.TabStop = false;
+            // 
+            // Blue
+            // 
+            this.Blue.Controls.Add(this.TabBlue);
+            this.Blue.Location = new System.Drawing.Point(4, 22);
+            this.Blue.Name = "Blue";
+            this.Blue.Size = new System.Drawing.Size(403, 302);
+            this.Blue.TabIndex = 2;
+            this.Blue.Text = "Blue";
+            this.Blue.UseVisualStyleBackColor = true;
+            // 
+            // TabBlue
+            // 
+            this.TabBlue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabBlue.Location = new System.Drawing.Point(0, 0);
+            this.TabBlue.Name = "TabBlue";
+            this.TabBlue.Size = new System.Drawing.Size(403, 302);
+            this.TabBlue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.TabBlue.TabIndex = 1;
+            this.TabBlue.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 306);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(88, 13);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Before / Image 2";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(6, 322);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(410, 325);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 12;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(842, 196);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(32, 13);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "After";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(842, 12);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Before";
+            // 
+            // chart2
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea3);
+            this.chart2.Location = new System.Drawing.Point(842, 212);
+            this.chart2.Name = "chart2";
+            series9.ChartArea = "ChartArea1";
+            series9.Color = System.Drawing.Color.Gray;
+            series9.MarkerColor = System.Drawing.Color.Black;
+            series9.Name = "Intensity";
+            series10.ChartArea = "ChartArea1";
+            series10.Color = System.Drawing.Color.Red;
+            series10.Name = "Red";
+            series11.ChartArea = "ChartArea1";
+            series11.Color = System.Drawing.Color.Lime;
+            series11.Name = "Green";
+            series12.ChartArea = "ChartArea1";
+            series12.Color = System.Drawing.Color.Blue;
+            series12.Name = "Blue";
+            this.chart2.Series.Add(series9);
+            this.chart2.Series.Add(series10);
+            this.chart2.Series.Add(series11);
+            this.chart2.Series.Add(series12);
+            this.chart2.Size = new System.Drawing.Size(193, 161);
+            this.chart2.TabIndex = 9;
+            this.chart2.Text = "chart2";
+            // 
+            // BlueFlag
+            // 
+            this.BlueFlag.AutoSize = true;
+            this.BlueFlag.Location = new System.Drawing.Point(925, 402);
+            this.BlueFlag.Name = "BlueFlag";
+            this.BlueFlag.Size = new System.Drawing.Size(46, 17);
+            this.BlueFlag.TabIndex = 8;
+            this.BlueFlag.Text = "Blue";
+            this.BlueFlag.UseVisualStyleBackColor = true;
+            this.BlueFlag.CheckedChanged += new System.EventHandler(this.BlueFlag_CheckedChanged);
+            // 
+            // GreenFlag
+            // 
+            this.GreenFlag.AutoSize = true;
+            this.GreenFlag.Location = new System.Drawing.Point(842, 403);
+            this.GreenFlag.Name = "GreenFlag";
+            this.GreenFlag.Size = new System.Drawing.Size(55, 17);
+            this.GreenFlag.TabIndex = 7;
+            this.GreenFlag.Text = "Green";
+            this.GreenFlag.UseVisualStyleBackColor = true;
+            this.GreenFlag.CheckedChanged += new System.EventHandler(this.GreenFlag_CheckedChanged);
+            // 
+            // RedFlag
+            // 
+            this.RedFlag.AutoSize = true;
+            this.RedFlag.Location = new System.Drawing.Point(926, 379);
+            this.RedFlag.Name = "RedFlag";
+            this.RedFlag.Size = new System.Drawing.Size(45, 17);
+            this.RedFlag.TabIndex = 6;
+            this.RedFlag.Text = "Red";
+            this.RedFlag.UseVisualStyleBackColor = true;
+            this.RedFlag.CheckedChanged += new System.EventHandler(this.RedFlag_CheckedChanged);
+            // 
+            // IntensityFlag
+            // 
+            this.IntensityFlag.AutoSize = true;
+            this.IntensityFlag.Checked = true;
+            this.IntensityFlag.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.IntensityFlag.Location = new System.Drawing.Point(843, 380);
+            this.IntensityFlag.Name = "IntensityFlag";
+            this.IntensityFlag.Size = new System.Drawing.Size(69, 17);
+            this.IntensityFlag.TabIndex = 5;
+            this.IntensityFlag.Text = "Intensity";
+            this.IntensityFlag.UseVisualStyleBackColor = true;
+            this.IntensityFlag.CheckedChanged += new System.EventHandler(this.IntensityFlag_CheckedChanged);
+            // 
+            // chart1
+            // 
+            this.chart1.BorderlineWidth = 0;
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            this.chart1.Location = new System.Drawing.Point(842, 28);
+            this.chart1.Name = "chart1";
+            series13.ChartArea = "ChartArea1";
+            series13.Color = System.Drawing.Color.Gray;
+            series13.MarkerColor = System.Drawing.Color.Black;
+            series13.Name = "Intensity";
+            series14.ChartArea = "ChartArea1";
+            series14.Color = System.Drawing.Color.Red;
+            series14.Name = "Red";
+            series15.ChartArea = "ChartArea1";
+            series15.Color = System.Drawing.Color.Lime;
+            series15.Name = "Green";
+            series16.ChartArea = "ChartArea1";
+            series16.Color = System.Drawing.Color.Blue;
+            series16.Name = "Blue";
+            this.chart1.Series.Add(series13);
+            this.chart1.Series.Add(series14);
+            this.chart1.Series.Add(series15);
+            this.chart1.Series.Add(series16);
+            this.chart1.Size = new System.Drawing.Size(193, 161);
+            this.chart1.TabIndex = 4;
+            this.chart1.Text = "chart1";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -377,312 +689,23 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // chart1
+            // GammaValue
             // 
-            this.chart1.BorderlineWidth = 0;
-            chartArea18.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea18);
-            this.chart1.Location = new System.Drawing.Point(842, 28);
-            this.chart1.Name = "chart1";
-            series69.ChartArea = "ChartArea1";
-            series69.Color = System.Drawing.Color.Gray;
-            series69.MarkerColor = System.Drawing.Color.Black;
-            series69.Name = "Intensity";
-            series70.ChartArea = "ChartArea1";
-            series70.Color = System.Drawing.Color.Red;
-            series70.Name = "Red";
-            series71.ChartArea = "ChartArea1";
-            series71.Color = System.Drawing.Color.Lime;
-            series71.Name = "Green";
-            series72.ChartArea = "ChartArea1";
-            series72.Color = System.Drawing.Color.Blue;
-            series72.Name = "Blue";
-            this.chart1.Series.Add(series69);
-            this.chart1.Series.Add(series70);
-            this.chart1.Series.Add(series71);
-            this.chart1.Series.Add(series72);
-            this.chart1.Size = new System.Drawing.Size(193, 161);
-            this.chart1.TabIndex = 4;
-            this.chart1.Text = "chart1";
+            this.GammaValue.DecimalPlaces = 2;
+            this.GammaValue.Location = new System.Drawing.Point(12, 425);
+            this.GammaValue.Name = "GammaValue";
+            this.GammaValue.Size = new System.Drawing.Size(49, 20);
+            this.GammaValue.TabIndex = 23;
             // 
-            // IntensityFlag
+            // Gamma
             // 
-            this.IntensityFlag.AutoSize = true;
-            this.IntensityFlag.Checked = true;
-            this.IntensityFlag.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.IntensityFlag.Location = new System.Drawing.Point(843, 380);
-            this.IntensityFlag.Name = "IntensityFlag";
-            this.IntensityFlag.Size = new System.Drawing.Size(69, 17);
-            this.IntensityFlag.TabIndex = 5;
-            this.IntensityFlag.Text = "Intensity";
-            this.IntensityFlag.UseVisualStyleBackColor = true;
-            this.IntensityFlag.CheckedChanged += new System.EventHandler(this.IntensityFlag_CheckedChanged);
-            // 
-            // RedFlag
-            // 
-            this.RedFlag.AutoSize = true;
-            this.RedFlag.Location = new System.Drawing.Point(926, 379);
-            this.RedFlag.Name = "RedFlag";
-            this.RedFlag.Size = new System.Drawing.Size(45, 17);
-            this.RedFlag.TabIndex = 6;
-            this.RedFlag.Text = "Red";
-            this.RedFlag.UseVisualStyleBackColor = true;
-            this.RedFlag.CheckedChanged += new System.EventHandler(this.RedFlag_CheckedChanged);
-            // 
-            // GreenFlag
-            // 
-            this.GreenFlag.AutoSize = true;
-            this.GreenFlag.Location = new System.Drawing.Point(842, 403);
-            this.GreenFlag.Name = "GreenFlag";
-            this.GreenFlag.Size = new System.Drawing.Size(55, 17);
-            this.GreenFlag.TabIndex = 7;
-            this.GreenFlag.Text = "Green";
-            this.GreenFlag.UseVisualStyleBackColor = true;
-            this.GreenFlag.CheckedChanged += new System.EventHandler(this.GreenFlag_CheckedChanged);
-            // 
-            // BlueFlag
-            // 
-            this.BlueFlag.AutoSize = true;
-            this.BlueFlag.Location = new System.Drawing.Point(925, 402);
-            this.BlueFlag.Name = "BlueFlag";
-            this.BlueFlag.Size = new System.Drawing.Size(46, 17);
-            this.BlueFlag.TabIndex = 8;
-            this.BlueFlag.Text = "Blue";
-            this.BlueFlag.UseVisualStyleBackColor = true;
-            this.BlueFlag.CheckedChanged += new System.EventHandler(this.BlueFlag_CheckedChanged);
-            // 
-            // chart2
-            // 
-            chartArea17.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea17);
-            this.chart2.Location = new System.Drawing.Point(842, 212);
-            this.chart2.Name = "chart2";
-            series65.ChartArea = "ChartArea1";
-            series65.Color = System.Drawing.Color.Gray;
-            series65.MarkerColor = System.Drawing.Color.Black;
-            series65.Name = "Intensity";
-            series66.ChartArea = "ChartArea1";
-            series66.Color = System.Drawing.Color.Red;
-            series66.Name = "Red";
-            series67.ChartArea = "ChartArea1";
-            series67.Color = System.Drawing.Color.Lime;
-            series67.Name = "Green";
-            series68.ChartArea = "ChartArea1";
-            series68.Color = System.Drawing.Color.Blue;
-            series68.Name = "Blue";
-            this.chart2.Series.Add(series65);
-            this.chart2.Series.Add(series66);
-            this.chart2.Series.Add(series67);
-            this.chart2.Series.Add(series68);
-            this.chart2.Size = new System.Drawing.Size(193, 161);
-            this.chart2.TabIndex = 9;
-            this.chart2.Text = "chart2";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(842, 12);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 13);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Before";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(842, 196);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 13);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "After";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 280);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Invert";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(6, 322);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(410, 325);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 12;
-            this.pictureBox3.TabStop = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 306);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(88, 13);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "Before / Image 2";
-            // 
-            // openImage2ToolStripMenuItem
-            // 
-            this.openImage2ToolStripMenuItem.Name = "openImage2ToolStripMenuItem";
-            this.openImage2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.openImage2ToolStripMenuItem.Text = "Open Image2";
-            this.openImage2ToolStripMenuItem.Click += new System.EventHandler(this.openImage2ToolStripMenuItem_Click);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.DecimalPlaces = 3;
-            this.numericUpDown1.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            196608});
-            this.numericUpDown1.Location = new System.Drawing.Point(12, 310);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(49, 20);
-            this.numericUpDown1.TabIndex = 15;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(67, 309);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 23);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(12, 338);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(142, 23);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Subtract";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.Red);
-            this.tabControl1.Controls.Add(this.Green);
-            this.tabControl1.Controls.Add(this.Blue);
-            this.tabControl1.Location = new System.Drawing.Point(426, 319);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(411, 328);
-            this.tabControl1.TabIndex = 14;
-            // 
-            // Red
-            // 
-            this.Red.Controls.Add(this.TabRed);
-            this.Red.Location = new System.Drawing.Point(4, 22);
-            this.Red.Name = "Red";
-            this.Red.Size = new System.Drawing.Size(403, 302);
-            this.Red.TabIndex = 0;
-            this.Red.Text = "Red";
-            this.Red.UseVisualStyleBackColor = true;
-            // 
-            // Green
-            // 
-            this.Green.Controls.Add(this.TabGreen);
-            this.Green.Location = new System.Drawing.Point(4, 22);
-            this.Green.Name = "Green";
-            this.Green.Size = new System.Drawing.Size(403, 302);
-            this.Green.TabIndex = 1;
-            this.Green.Text = "Green";
-            this.Green.UseVisualStyleBackColor = true;
-            // 
-            // Blue
-            // 
-            this.Blue.Controls.Add(this.TabBlue);
-            this.Blue.Location = new System.Drawing.Point(4, 22);
-            this.Blue.Name = "Blue";
-            this.Blue.Size = new System.Drawing.Size(403, 302);
-            this.Blue.TabIndex = 2;
-            this.Blue.Text = "Blue";
-            this.Blue.UseVisualStyleBackColor = true;
-            // 
-            // TabRed
-            // 
-            this.TabRed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabRed.Location = new System.Drawing.Point(0, 0);
-            this.TabRed.Name = "TabRed";
-            this.TabRed.Size = new System.Drawing.Size(403, 302);
-            this.TabRed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.TabRed.TabIndex = 0;
-            this.TabRed.TabStop = false;
-            // 
-            // TabGreen
-            // 
-            this.TabGreen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabGreen.Location = new System.Drawing.Point(0, 0);
-            this.TabGreen.Name = "TabGreen";
-            this.TabGreen.Size = new System.Drawing.Size(403, 302);
-            this.TabGreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.TabGreen.TabIndex = 1;
-            this.TabGreen.TabStop = false;
-            // 
-            // TabBlue
-            // 
-            this.TabBlue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabBlue.Location = new System.Drawing.Point(0, 0);
-            this.TabBlue.Name = "TabBlue";
-            this.TabBlue.Size = new System.Drawing.Size(403, 302);
-            this.TabBlue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.TabBlue.TabIndex = 1;
-            this.TabBlue.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(67, 367);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(87, 23);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "Bit Slice";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(12, 370);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(49, 20);
-            this.numericUpDown2.TabIndex = 20;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(12, 399);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(49, 20);
-            this.numericUpDown3.TabIndex = 22;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(67, 396);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(87, 23);
-            this.button5.TabIndex = 21;
-            this.button5.Text = "Quantize";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.Gamma.Location = new System.Drawing.Point(67, 422);
+            this.Gamma.Name = "Gamma";
+            this.Gamma.Size = new System.Drawing.Size(87, 23);
+            this.Gamma.TabIndex = 24;
+            this.Gamma.Text = "Gamma";
+            this.Gamma.UseVisualStyleBackColor = true;
+            this.Gamma.Click += new System.EventHandler(this.Gamma_Click);
             // 
             // Form1
             // 
@@ -703,26 +726,27 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BrightnessSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shearY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shearX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scaleY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scaleX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.Red.ResumeLayout(false);
-            this.Green.ResumeLayout(false);
-            this.Blue.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TabRed)).EndInit();
+            this.Green.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TabGreen)).EndInit();
+            this.Blue.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TabBlue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GammaValue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -780,6 +804,8 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button Gamma;
+        private System.Windows.Forms.NumericUpDown GammaValue;
     }
 }
 

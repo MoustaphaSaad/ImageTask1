@@ -227,36 +227,37 @@ namespace ImageTask1
                 img1 = TransformImage(img1, 0, 0, 0, (float)img2.Width / (float)img1.Width,
                     (float)img2.Height / (float)img1.Height);
             }
-
+            
             Image result = img1.Clone();
 
             for (uint i = 0; i < img1.Height; i++)
             {
                 for (uint j = 0; j < img1.Width; j++)
                 {
+
                     Pixel p1 = img1.getPixel(j, i);
                     Pixel p2 = img2.getPixel(j, i);
 
-                    double p1_r, p2_r, p1_g, p2_g, p1_b, p2_b;
+                    //double p1_r, p2_r, p1_g, p2_g, p1_b, p2_b;
 
-                    p1_r = p1.R / 255.0f;
+                   /* p1_r = p1.R / 255.0f;
                     p1_g = p1.G / 255.0f;
                     p1_b = p1.B / 255.0f;
 
                     p2_r = p2.R / 255.0f;
                     p2_g = p2.G / 255.0f;
                     p2_b = p2.B / 255.0f;
-
+                    */
                     double rr, rg, rb;
 
-                    rr = p1_r - p2_r;
-                    rg = p1_g - p2_g;
-                    rb = p1_b - p2_b;
+                    rr = (p1.R - p2.R + 255.0)/510.0;
+                    rg = (p1.G - p2.G + 255.0)/510.0;
+                    rb = (p1.B - p2.B + 255.0)/510.0;
 
                     Pixel res = new Pixel();
-                    res.R = (byte)(Math.Min(0, rr * 255));
-                    res.G = (byte)(Math.Min(0, rg * 255));
-                    res.B = (byte)(Math.Min(0, rb * 255));
+                    res.R = (byte)(rr * 255.0);
+                    res.G = (byte)(rg * 255.0);
+                    res.B = (byte)(rb * 255.0);
 
                     result.setPixel(j, i, res);
                 }
@@ -265,6 +266,22 @@ namespace ImageTask1
             return result;
         }
 
+        public static Image GammaCorrection(Image img, double gamma)
+        {
+            float c = 1;
+            for (uint i = 0; i < img.Height; ++i)
+            {
+                for (uint j = 0; j < img.Width; ++j)
+                {
+                    Pixel p = img.getPixel(j, i);
+                    p.R = (byte)((c * Math.Pow(p.R / 255.0, gamma)) * 255.0);
+                    p.G = (byte)((c * Math.Pow(p.G / 255.0, gamma)) * 255.0);
+                    p.B = (byte)((c * Math.Pow(p.B / 255.0, gamma)) * 255.0);
+                    img.setPixel(j, i, p);
+                }
+            }
+                return img;
+        }
         public static void BitSlice(Image img, int bit, out Image r, out Image g, out Image b)
         {
             r = new Image(img.Width,img.Height,img.Components);
