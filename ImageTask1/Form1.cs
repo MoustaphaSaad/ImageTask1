@@ -22,6 +22,7 @@ namespace ImageTask1
         {
             InitializeComponent();
             img = null;
+           
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,6 +44,8 @@ namespace ImageTask1
                 tmp = img;
                 if (img != null)
                 {
+                    
+
                     pictureBox1.Image = img.bitmap;
                     //Generate Histogram
                     generateHistogram(img, chart1);
@@ -253,6 +256,14 @@ namespace ImageTask1
             tmp = ImageOperation.Quantize(tmp, (int) numericUpDown3.Value);
             pictureBox2.Image = tmp.bitmap;
             generateHistogram(tmp,chart2);
+        }
+
+        private void newFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainForm f = new MainForm();
+            this.Hide();           //Hide the main form before showing the secondary
+            f.ShowDialog();     //Show secondary form, code execution stop until frm2 is closed
+            this.Show();
         }
 
     }
