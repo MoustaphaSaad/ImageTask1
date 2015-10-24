@@ -136,7 +136,7 @@ namespace ImageTask1
 
         private void contrastToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OperationsForm f = new OperationsForm(((MDIForm)ActiveMdiChild),"Contrast");
+            OperationsForm f = new OperationsForm(((MDIForm)ActiveMdiChild), "Contrast");
             this.IsAccessible = false;
             f.ShowDialog();
             this.IsAccessible = true;

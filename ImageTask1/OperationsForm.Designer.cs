@@ -91,7 +91,7 @@
             this.Slider.Minimum = -255;
             this.Slider.Name = "Slider";
             this.Slider.Size = new System.Drawing.Size(190, 45);
-            this.Slider.SmallChange = 5;
+            this.Slider.SmallChange = 2;
             this.Slider.TabIndex = 13;
             this.Slider.Scroll += new System.EventHandler(this.Slider_Scroll);
             // 

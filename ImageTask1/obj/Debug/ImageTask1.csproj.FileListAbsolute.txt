@@ -21,7 +21,6 @@ C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.pdb
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\bin\Debug\ImageTask1.exe
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csprojResolveAssemblyReference.cache
-C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Form1.resources
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Properties.Resources.resources
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csproj.GenerateResource.Cache
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\bin\Debug\ImageTask1.pdb
