@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series25 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series26 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series27 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series28 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series29 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series30 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series31 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series32 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +46,12 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.SegmaValue2 = new System.Windows.Forms.NumericUpDown();
+            this.Gaussian2 = new System.Windows.Forms.Button();
+            this.MaskSize1 = new System.Windows.Forms.NumericUpDown();
+            this.SegmaValue1 = new System.Windows.Forms.NumericUpDown();
+            this.Gaussian1 = new System.Windows.Forms.Button();
+            this.LinearFilter = new System.Windows.Forms.Button();
             this.Gamma = new System.Windows.Forms.Button();
             this.GammaValue = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -90,18 +96,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.LinearFilter = new System.Windows.Forms.Button();
-            this.Gaussian1 = new System.Windows.Forms.Button();
-            this.SegmaValue1 = new System.Windows.Forms.NumericUpDown();
-            this.MaskSize1 = new System.Windows.Forms.NumericUpDown();
-            this.SegmaValue2 = new System.Windows.Forms.NumericUpDown();
-            this.Gaussian2 = new System.Windows.Forms.Button();
+            this.newFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SegmaValue2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaskSize1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SegmaValue1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GammaValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -123,9 +127,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SegmaValue1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MaskSize1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SegmaValue2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -140,7 +141,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.newFormToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1295, 24);
@@ -245,6 +247,69 @@
             this.splitContainer1.Size = new System.Drawing.Size(1295, 659);
             this.splitContainer1.SplitterDistance = 244;
             this.splitContainer1.TabIndex = 4;
+            // 
+            // SegmaValue2
+            // 
+            this.SegmaValue2.DecimalPlaces = 2;
+            this.SegmaValue2.Location = new System.Drawing.Point(12, 513);
+            this.SegmaValue2.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.SegmaValue2.Name = "SegmaValue2";
+            this.SegmaValue2.Size = new System.Drawing.Size(49, 20);
+            this.SegmaValue2.TabIndex = 30;
+            // 
+            // Gaussian2
+            // 
+            this.Gaussian2.Location = new System.Drawing.Point(67, 510);
+            this.Gaussian2.Name = "Gaussian2";
+            this.Gaussian2.Size = new System.Drawing.Size(75, 23);
+            this.Gaussian2.TabIndex = 29;
+            this.Gaussian2.Text = "Gaussian2";
+            this.Gaussian2.UseVisualStyleBackColor = true;
+            this.Gaussian2.Click += new System.EventHandler(this.Gaussian2_Click);
+            // 
+            // MaskSize1
+            // 
+            this.MaskSize1.Location = new System.Drawing.Point(148, 484);
+            this.MaskSize1.Name = "MaskSize1";
+            this.MaskSize1.Size = new System.Drawing.Size(49, 20);
+            this.MaskSize1.TabIndex = 28;
+            // 
+            // SegmaValue1
+            // 
+            this.SegmaValue1.DecimalPlaces = 2;
+            this.SegmaValue1.Location = new System.Drawing.Point(12, 484);
+            this.SegmaValue1.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.SegmaValue1.Name = "SegmaValue1";
+            this.SegmaValue1.Size = new System.Drawing.Size(49, 20);
+            this.SegmaValue1.TabIndex = 27;
+            // 
+            // Gaussian1
+            // 
+            this.Gaussian1.Location = new System.Drawing.Point(67, 481);
+            this.Gaussian1.Name = "Gaussian1";
+            this.Gaussian1.Size = new System.Drawing.Size(75, 23);
+            this.Gaussian1.TabIndex = 26;
+            this.Gaussian1.Text = "Gaussian1";
+            this.Gaussian1.UseVisualStyleBackColor = true;
+            this.Gaussian1.Click += new System.EventHandler(this.Gaussian1_Click);
+            // 
+            // LinearFilter
+            // 
+            this.LinearFilter.Location = new System.Drawing.Point(67, 452);
+            this.LinearFilter.Name = "LinearFilter";
+            this.LinearFilter.Size = new System.Drawing.Size(75, 23);
+            this.LinearFilter.TabIndex = 25;
+            this.LinearFilter.Text = "LinearFilter";
+            this.LinearFilter.UseVisualStyleBackColor = true;
+            this.LinearFilter.Click += new System.EventHandler(this.LinearFilter_Click);
             // 
             // Gamma
             // 
@@ -402,7 +467,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(13, 112);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Rotation";
             // 
@@ -418,7 +483,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(82, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Shear Y";
             // 
@@ -427,7 +492,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(13, 62);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Shear X";
             // 
@@ -450,7 +515,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(82, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Scale Y";
             // 
@@ -459,12 +524,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Scale X";
             // 
             // scaleY
             // 
+            this.scaleY.DecimalPlaces = 2;
+            this.scaleY.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.scaleY.Location = new System.Drawing.Point(85, 28);
             this.scaleY.Name = "scaleY";
             this.scaleY.Size = new System.Drawing.Size(69, 20);
@@ -477,6 +548,7 @@
             // 
             // scaleX
             // 
+            this.scaleX.DecimalPlaces = 2;
             this.scaleX.Location = new System.Drawing.Point(12, 28);
             this.scaleX.Name = "scaleX";
             this.scaleX.Size = new System.Drawing.Size(67, 20);
@@ -563,7 +635,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(3, 306);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(88, 13);
+            this.label10.Size = new System.Drawing.Size(87, 13);
             this.label10.TabIndex = 13;
             this.label10.Text = "Before / Image 2";
             // 
@@ -581,7 +653,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(842, 196);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 13);
+            this.label9.Size = new System.Drawing.Size(29, 13);
             this.label9.TabIndex = 11;
             this.label9.Text = "After";
             // 
@@ -590,33 +662,33 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(842, 12);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.Size = new System.Drawing.Size(38, 13);
             this.label8.TabIndex = 10;
             this.label8.Text = "Before";
             // 
             // chart2
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea1);
+            chartArea7.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea7);
             this.chart2.Location = new System.Drawing.Point(842, 212);
             this.chart2.Name = "chart2";
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.Gray;
-            series1.MarkerColor = System.Drawing.Color.Black;
-            series1.Name = "Intensity";
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.Red;
-            series2.Name = "Red";
-            series3.ChartArea = "ChartArea1";
-            series3.Color = System.Drawing.Color.Lime;
-            series3.Name = "Green";
-            series4.ChartArea = "ChartArea1";
-            series4.Color = System.Drawing.Color.Blue;
-            series4.Name = "Blue";
-            this.chart2.Series.Add(series1);
-            this.chart2.Series.Add(series2);
-            this.chart2.Series.Add(series3);
-            this.chart2.Series.Add(series4);
+            series25.ChartArea = "ChartArea1";
+            series25.Color = System.Drawing.Color.Gray;
+            series25.MarkerColor = System.Drawing.Color.Black;
+            series25.Name = "Intensity";
+            series26.ChartArea = "ChartArea1";
+            series26.Color = System.Drawing.Color.Red;
+            series26.Name = "Red";
+            series27.ChartArea = "ChartArea1";
+            series27.Color = System.Drawing.Color.Lime;
+            series27.Name = "Green";
+            series28.ChartArea = "ChartArea1";
+            series28.Color = System.Drawing.Color.Blue;
+            series28.Name = "Blue";
+            this.chart2.Series.Add(series25);
+            this.chart2.Series.Add(series26);
+            this.chart2.Series.Add(series27);
+            this.chart2.Series.Add(series28);
             this.chart2.Size = new System.Drawing.Size(193, 161);
             this.chart2.TabIndex = 9;
             this.chart2.Text = "chart2";
@@ -626,7 +698,7 @@
             this.BlueFlag.AutoSize = true;
             this.BlueFlag.Location = new System.Drawing.Point(925, 402);
             this.BlueFlag.Name = "BlueFlag";
-            this.BlueFlag.Size = new System.Drawing.Size(46, 17);
+            this.BlueFlag.Size = new System.Drawing.Size(47, 17);
             this.BlueFlag.TabIndex = 8;
             this.BlueFlag.Text = "Blue";
             this.BlueFlag.UseVisualStyleBackColor = true;
@@ -648,7 +720,7 @@
             this.RedFlag.AutoSize = true;
             this.RedFlag.Location = new System.Drawing.Point(926, 379);
             this.RedFlag.Name = "RedFlag";
-            this.RedFlag.Size = new System.Drawing.Size(45, 17);
+            this.RedFlag.Size = new System.Drawing.Size(46, 17);
             this.RedFlag.TabIndex = 6;
             this.RedFlag.Text = "Red";
             this.RedFlag.UseVisualStyleBackColor = true;
@@ -661,7 +733,7 @@
             this.IntensityFlag.CheckState = System.Windows.Forms.CheckState.Checked;
             this.IntensityFlag.Location = new System.Drawing.Point(843, 380);
             this.IntensityFlag.Name = "IntensityFlag";
-            this.IntensityFlag.Size = new System.Drawing.Size(69, 17);
+            this.IntensityFlag.Size = new System.Drawing.Size(65, 17);
             this.IntensityFlag.TabIndex = 5;
             this.IntensityFlag.Text = "Intensity";
             this.IntensityFlag.UseVisualStyleBackColor = true;
@@ -670,27 +742,27 @@
             // chart1
             // 
             this.chart1.BorderlineWidth = 0;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea8.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea8);
             this.chart1.Location = new System.Drawing.Point(842, 28);
             this.chart1.Name = "chart1";
-            series5.ChartArea = "ChartArea1";
-            series5.Color = System.Drawing.Color.Gray;
-            series5.MarkerColor = System.Drawing.Color.Black;
-            series5.Name = "Intensity";
-            series6.ChartArea = "ChartArea1";
-            series6.Color = System.Drawing.Color.Red;
-            series6.Name = "Red";
-            series7.ChartArea = "ChartArea1";
-            series7.Color = System.Drawing.Color.Lime;
-            series7.Name = "Green";
-            series8.ChartArea = "ChartArea1";
-            series8.Color = System.Drawing.Color.Blue;
-            series8.Name = "Blue";
-            this.chart1.Series.Add(series5);
-            this.chart1.Series.Add(series6);
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
+            series29.ChartArea = "ChartArea1";
+            series29.Color = System.Drawing.Color.Gray;
+            series29.MarkerColor = System.Drawing.Color.Black;
+            series29.Name = "Intensity";
+            series30.ChartArea = "ChartArea1";
+            series30.Color = System.Drawing.Color.Red;
+            series30.Name = "Red";
+            series31.ChartArea = "ChartArea1";
+            series31.Color = System.Drawing.Color.Lime;
+            series31.Name = "Green";
+            series32.ChartArea = "ChartArea1";
+            series32.Color = System.Drawing.Color.Blue;
+            series32.Name = "Blue";
+            this.chart1.Series.Add(series29);
+            this.chart1.Series.Add(series30);
+            this.chart1.Series.Add(series31);
+            this.chart1.Series.Add(series32);
             this.chart1.Size = new System.Drawing.Size(193, 161);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "chart1";
@@ -700,7 +772,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(416, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 13);
+            this.label7.Size = new System.Drawing.Size(29, 13);
             this.label7.TabIndex = 3;
             this.label7.Text = "After";
             // 
@@ -709,7 +781,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 13);
+            this.label6.Size = new System.Drawing.Size(87, 13);
             this.label6.TabIndex = 2;
             this.label6.Text = "Before / Image 1";
             // 
@@ -722,68 +794,12 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // LinearFilter
+            // newFormToolStripMenuItem
             // 
-            this.LinearFilter.Location = new System.Drawing.Point(67, 452);
-            this.LinearFilter.Name = "LinearFilter";
-            this.LinearFilter.Size = new System.Drawing.Size(75, 23);
-            this.LinearFilter.TabIndex = 25;
-            this.LinearFilter.Text = "LinearFilter";
-            this.LinearFilter.UseVisualStyleBackColor = true;
-            this.LinearFilter.Click += new System.EventHandler(this.LinearFilter_Click);
-            // 
-            // Gaussian1
-            // 
-            this.Gaussian1.Location = new System.Drawing.Point(67, 481);
-            this.Gaussian1.Name = "Gaussian1";
-            this.Gaussian1.Size = new System.Drawing.Size(75, 23);
-            this.Gaussian1.TabIndex = 26;
-            this.Gaussian1.Text = "Gaussian1";
-            this.Gaussian1.UseVisualStyleBackColor = true;
-            this.Gaussian1.Click += new System.EventHandler(this.Gaussian1_Click);
-            // 
-            // SegmaValue1
-            // 
-            this.SegmaValue1.DecimalPlaces = 2;
-            this.SegmaValue1.Location = new System.Drawing.Point(12, 484);
-            this.SegmaValue1.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.SegmaValue1.Name = "SegmaValue1";
-            this.SegmaValue1.Size = new System.Drawing.Size(49, 20);
-            this.SegmaValue1.TabIndex = 27;
-            // 
-            // MaskSize1
-            // 
-            this.MaskSize1.Location = new System.Drawing.Point(148, 484);
-            this.MaskSize1.Name = "MaskSize1";
-            this.MaskSize1.Size = new System.Drawing.Size(49, 20);
-            this.MaskSize1.TabIndex = 28;
-            // 
-            // SegmaValue2
-            // 
-            this.SegmaValue2.DecimalPlaces = 2;
-            this.SegmaValue2.Location = new System.Drawing.Point(12, 513);
-            this.SegmaValue2.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.SegmaValue2.Name = "SegmaValue2";
-            this.SegmaValue2.Size = new System.Drawing.Size(49, 20);
-            this.SegmaValue2.TabIndex = 30;
-            // 
-            // Gaussian2
-            // 
-            this.Gaussian2.Location = new System.Drawing.Point(67, 510);
-            this.Gaussian2.Name = "Gaussian2";
-            this.Gaussian2.Size = new System.Drawing.Size(75, 23);
-            this.Gaussian2.TabIndex = 29;
-            this.Gaussian2.Text = "Gaussian2";
-            this.Gaussian2.UseVisualStyleBackColor = true;
-            this.Gaussian2.Click += new System.EventHandler(this.Gaussian2_Click);
+            this.newFormToolStripMenuItem.Name = "newFormToolStripMenuItem";
+            this.newFormToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.newFormToolStripMenuItem.Text = "New Form";
+            this.newFormToolStripMenuItem.Click += new System.EventHandler(this.newFormToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -804,6 +820,9 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SegmaValue2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaskSize1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SegmaValue1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GammaValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
@@ -825,9 +844,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SegmaValue1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MaskSize1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SegmaValue2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -893,6 +909,7 @@
         private System.Windows.Forms.Button Gaussian1;
         private System.Windows.Forms.NumericUpDown SegmaValue2;
         private System.Windows.Forms.Button Gaussian2;
+        private System.Windows.Forms.ToolStripMenuItem newFormToolStripMenuItem;
     }
 }
 

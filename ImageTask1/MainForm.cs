@@ -52,7 +52,7 @@ namespace ImageTask1
         {
             MDIForm f = ((MDIForm)ActiveMdiChild);
             f.tmp = f.img.Clone();
-            f.tmp = ImageOperation.GreyScale(f.tmp);
+            f.tmp = ImageOperation.GrayScale(f.tmp);
             f.UpdateTMP();
             generateHistogram(f.img, chart1);
             generateHistogram(f.tmp, chart2);

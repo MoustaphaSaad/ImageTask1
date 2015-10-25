@@ -21,7 +21,6 @@ namespace ImageTask1
         public Form1()
         {
             InitializeComponent();
-            img = null;
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -141,7 +140,7 @@ namespace ImageTask1
         private void GrayScale_Click(object sender, EventArgs e)
         {
             tmp = img.Clone();
-            tmp = ImageOperation.GreyScale(tmp);
+            tmp = ImageOperation.GrayScale(tmp);
             pictureBox2.Image = tmp.bitmap;
             generateHistogram(img, chart1);
             generateHistogram(tmp, chart2);
@@ -300,6 +299,14 @@ namespace ImageTask1
             tmp = ImageOperation.LinearFilter(img, values, size / 2, size / 2, ImageOperation.PostProcessing.NO);
             pictureBox2.Image = tmp.bitmap;
             generateHistogram(tmp, chart2);
+        }
+
+        private void newFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainForm f = new MainForm();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
     }

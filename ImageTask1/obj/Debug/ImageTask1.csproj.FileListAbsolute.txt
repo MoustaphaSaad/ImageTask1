@@ -35,5 +35,13 @@ D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\obj\Debug\Im
 D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\bin\Debug\ImageTask1.exe
 D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\bin\Debug\ImageTask1.pdb
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\bin\Debug\ImageTask1.exe.config
+C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\bin\Debug\ImageTask1.exe
+C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\bin\Debug\ImageTask1.pdb
+C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Form1.resources
+C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.MainForm.resources
+C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.MDIForm.resources
+C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.OperationsForm.resources
+C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Properties.Resources.resources
+C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csproj.GenerateResource.Cache
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.exe
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.pdb

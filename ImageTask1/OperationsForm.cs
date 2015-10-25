@@ -18,9 +18,11 @@ namespace ImageTask1
             InitializeComponent();
             form =  f;
             
-            this.Text = operation;
-            After = ImageOperation.TransformImage(f.img, 0, 0, 0, (float)AfterPictureBox.Width / f.img.Width, (float)AfterPictureBox.Height / f.img.Height);
-            Before = ImageOperation.TransformImage(f.img, 0, 0, 0, (float)AfterPictureBox.Width / f.img.Width, (float)AfterPictureBox.Height / f.img.Height);
+            this.Text = operation;   
+            decimal x = Math.Round((Decimal)AfterPictureBox.Width / f.img.Width, 2, MidpointRounding.AwayFromZero);
+            decimal y = Math.Round((Decimal)AfterPictureBox.Height / f.img.Height, 2, MidpointRounding.AwayFromZero);
+            After = ImageOperation.TransformImage(f.img, 0, 0, 0,(float)x ,(float)y );
+            Before = ImageOperation.TransformImage(f.img, 0, 0, 0, (float)x, (float)y);
             this.BeforePictureBox.Image = Before.bitmap;
             this.AfterPictureBox.Image = After.bitmap;
 
