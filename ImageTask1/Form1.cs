@@ -265,5 +265,42 @@ namespace ImageTask1
             generateHistogram(tmp, chart2);
         }
 
+        private void LinearFilter_Click(object sender, EventArgs e)
+        {
+            if (img == null)
+                return;
+            tmp = img.Clone();
+            double[,] values = new double[5, 5] { { 1 / 25.0, 1 / 25.0, 1 / 25.0, 1 / 25.0, 1 / 25.0 }, { 1 / 25.0, 1 / 25.0, 1 / 25.0, 1 / 25.0, 1 / 25.0 },
+            {1/25.0,1/25.0,1/25.0,1/25.0,1/25.0},{1/25.0,1/25.0,1/25.0,1/25.0,1/25.0},{1/25.0,1/25.0,1/25.0,1/25.0,1/25.0} };
+            tmp = ImageOperation.LinearFilter(img, values, 1, 1, ImageOperation.PostProcessing.NORMALIZATION);
+            pictureBox2.Image = tmp.bitmap;
+            generateHistogram(tmp, chart2);
+        }
+
+        private void Gaussian1_Click(object sender, EventArgs e)
+        {
+            if (img == null)
+                return;
+            tmp = img.Clone();
+            double[,] values = ImageOperation.CreateGaussianFilter1((int)MaskSize1.Value ,(double)SegmaValue1.Value);
+            tmp = ImageOperation.LinearFilter(img, values, (int)MaskSize1.Value / 2, (int)MaskSize1.Value/2, ImageOperation.PostProcessing.NO);
+            pictureBox2.Image = tmp.bitmap;
+            generateHistogram(tmp, chart2);
+
+        }
+
+        private void Gaussian2_Click(object sender, EventArgs e)
+        {
+
+            if (img == null)
+                return;
+            tmp = img.Clone();
+            int size;
+            double[,] values = ImageOperation.CreateGaussianFilter2((double)SegmaValue2.Value,out size);
+            tmp = ImageOperation.LinearFilter(img, values, size / 2, size / 2, ImageOperation.PostProcessing.NO);
+            pictureBox2.Image = tmp.bitmap;
+            generateHistogram(tmp, chart2);
+        }
+
     }
 }

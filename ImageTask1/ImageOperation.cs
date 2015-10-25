@@ -11,7 +11,7 @@ namespace ImageTask1
 {
     class ImageOperation
     {
-
+        public enum PostProcessing {NO, NORMALIZATION, CUTOFF, ABSOLUTE };
 
         public static Image TransformImage(Image img, float theta,float shearx, float sheary, float scalex, float scaley)
         {
@@ -362,6 +362,125 @@ namespace ImageTask1
             return img;
         }
 
+        public static double Clamp(double min, double max, double val)
+        {
+            if (val < min)
+                return min;
+            else if (val > max)
+                return max;
+            else
+                return val;
+        }
+
+        public static Image LinearFilter(Image img, double[,] values, int OriginX, int OriginY, PostProcessing op)
+        {
+            Image nimage = img.Clone();
+            int top = values.GetLength(0) - OriginY;
+            int down = values.GetLength(0) - top;
+            int left = values.GetLength(1) - OriginX;
+            int right = values.GetLength(1) - left;
+            for (uint i = 0; i < img.Height; ++i)
+            {
+                for (uint j = 0; j < img.Width; ++j)
+                {
+                    uint nx = 0;
+                    uint ny = 0;
+                    double rr = 0;
+                    double gg = 0;
+                    double bb = 0;
+                    for (int x =(int) (i - top); x < (int)(i + down); ++x , nx++)
+                    {
+                        for (int y = (int)(j - left); y < (int)(j + right); ++y, ny++)
+                        {
+                            Pixel p;
+                            if (x < 0 || x >= img.Height || y < 0 || y >= img.Width)
+                                p = new Pixel(0,0,0,0);
+                            else 
+                            {
+                                p = img.getPixel((uint)y, (uint)x);
+                            }
+                            rr += p.R * values[nx, ny];
+                            gg += p.G * values[nx, ny];
+                            bb += p.B * values[nx, ny];
+                        }
+                        ny = 0;
+                    }
+                    Pixel np = new Pixel();
+                    if (op == PostProcessing.NO)
+                    {
+                        np = new Pixel((byte)rr,(byte)gg,(byte)bb,0);
+                    }
+                    else if (op == PostProcessing.ABSOLUTE)
+                    {
+ 
+                    }
+                    else if (op == PostProcessing.CUTOFF)
+                    {
+                        rr = Clamp(0, 255, rr);
+                        gg = Clamp(0, 255, gg);
+                        bb = Clamp(0, 255, bb);
+                        np = new Pixel((byte)rr, (byte)gg, (byte)bb, 0);
+                    }
+                    else if (op == PostProcessing.NORMALIZATION)
+                    {
+                        rr = rr / (/*values.GetLength(0) * values.GetLength(1) */ 255.0);
+                        gg = gg / (/*values.GetLength(0) * values.GetLength(1) */ 255.0);
+                        bb = bb / (/*values.GetLength(0) * values.GetLength(1) */ 255.0);
+                        np = new Pixel((byte)(rr*255), (byte)(gg*255), (byte)(bb*255), 0);
+                    }
+                    nimage.setPixel(j, i, np);
+                }
+            }
+
+            return nimage;
+        }
+
+        public static double[,] CreateGaussianFilter1(int size, double sigma)
+        {
+            double[,] filter = new double[size, size];
+            double sum = 0;
+            int ni = -1 * size / 2;
+            int nj = -1 * size / 2;
+            for (int i = 0; i < size; ++i,ni++)
+            {
+                for (int j = 0; j < size; ++j,nj++)
+                {
+                filter[i,j] = Math.Pow(Math.E, (-1 * ((ni * ni + nj * nj) / (2.0 * sigma * sigma))));
+                sum += filter[i, j];
+                }
+                nj = 0;
+            }
+            for (int i = 0; i < size; ++i)
+            {
+                for (int j = 0; j < size; ++j)
+                {
+                    filter[i, j] /= sum;
+                }
+            }
+            
+            return filter;
+        }
+
+        public static double[,] CreateGaussianFilter2(double sigma,out int nsize)
+        {
+            int n = (int)(3.7 * sigma - 0.5);
+            int size = 2 * n + 1;
+            nsize = size;
+            double[,] filter = new double[size, size];
+            double sum = 0;
+            int ni = -1 * size / 2;
+            int nj = -1 * size / 2;
+            for (int i = 0; i < size; ++i, ni++)
+            {
+                for (int j = 0; j < size; ++j, nj++)
+                {   
+                    filter[i, j] =(1.0/(2*Math.PI*sigma*sigma)) * Math.Pow(Math.E, (-1 * ((ni * ni + nj * nj) / (2.0 * sigma * sigma))));
+                    sum += filter[i, j];
+                }
+                nj = 0;
+            }
+            return filter;
+        }
 
     }
 }

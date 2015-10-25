@@ -25,3 +25,12 @@ E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.csprojResolveAssemblyReferen
 E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.Form1.resources
 E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.Properties.Resources.resources
 E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.csproj.GenerateResource.Cache
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\bin\Debug\ImageTask1.exe.config
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\obj\Debug\ImageTask1.exe
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\obj\Debug\ImageTask1.pdb
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csprojResolveAssemblyReference.cache
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Form1.resources
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Properties.Resources.resources
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csproj.GenerateResource.Cache
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\bin\Debug\ImageTask1.exe
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\bin\Debug\ImageTask1.pdb
