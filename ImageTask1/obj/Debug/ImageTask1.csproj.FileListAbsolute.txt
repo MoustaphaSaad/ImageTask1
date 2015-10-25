@@ -19,3 +19,9 @@ D:\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csproj.GenerateResource.Cac
 E:\Hell\ImageTask01\ImageTask1\bin\Debug\ImageTask1.exe.config
 E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.exe
 E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.pdb
+E:\Hell\ImageTask01\ImageTask1\bin\Debug\ImageTask1.exe
+E:\Hell\ImageTask01\ImageTask1\bin\Debug\ImageTask1.pdb
+E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.csprojResolveAssemblyReference.cache
+E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.Form1.resources
+E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.Properties.Resources.resources
+E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.csproj.GenerateResource.Cache

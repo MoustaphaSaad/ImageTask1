@@ -88,9 +88,18 @@ namespace ImageTask1
             m_width = (uint)bmp.Width;
             m_height = (uint)bmp.Height;
             m_needFlush = false;
-            m_bitmap = bmp;
+            if (bmp.PixelFormat == PixelFormat.Format8bppIndexed || bmp.PixelFormat == PixelFormat.Format1bppIndexed ||
+                bmp.PixelFormat == PixelFormat.Format4bppIndexed)
+            {
+                //convert
+                m_bitmap = ImageLoader.CreateNonIndexedImage(bmp);
+            }
+            else
+            {
+                m_bitmap = bmp;
+            }
 
-           if (bmp.PixelFormat == PixelFormat.Format24bppRgb)
+            if (bmp.PixelFormat == PixelFormat.Format24bppRgb)
            {
             m_components = 3;
            }
@@ -209,12 +218,8 @@ namespace ImageTask1
                     {
                         for (int y = 0; y < m_height; y++)
                         {
-                            index = x + (int)(y*m_width);
-                            index *= (int)m_components;
-                            b = m_buffer[index];
-                            g = m_buffer[index+1];
-                            r = m_buffer[index + 2];
-                            c = Color.FromArgb(r, g, b);
+                            Pixel p = getPixel((uint)x, (uint)y);
+                            c = Color.FromArgb(p.R, p.G, p.B);
 
                             m_bitmap.SetPixel(x,y,c);
                         }
