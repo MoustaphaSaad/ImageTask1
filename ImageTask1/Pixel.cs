@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ImageTask1
 {
-    public struct Pixel
+    struct Pixel
     {
         public byte R, G, B, A;
 

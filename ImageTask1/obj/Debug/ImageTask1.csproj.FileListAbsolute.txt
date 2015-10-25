@@ -16,14 +16,24 @@ D:\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csprojResolveAssemblyRefere
 D:\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Form1.resources
 D:\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Properties.Resources.resources
 D:\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csproj.GenerateResource.Cache
+E:\Hell\ImageTask01\ImageTask1\bin\Debug\ImageTask1.exe.config
+E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.exe
+E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.pdb
+E:\Hell\ImageTask01\ImageTask1\bin\Debug\ImageTask1.exe
+E:\Hell\ImageTask01\ImageTask1\bin\Debug\ImageTask1.pdb
+E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.csprojResolveAssemblyReference.cache
+E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.Form1.resources
+E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.Properties.Resources.resources
+E:\Hell\ImageTask01\ImageTask1\obj\Debug\ImageTask1.csproj.GenerateResource.Cache
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\bin\Debug\ImageTask1.exe.config
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\obj\Debug\ImageTask1.exe
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\obj\Debug\ImageTask1.pdb
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csprojResolveAssemblyReference.cache
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Form1.resources
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Properties.Resources.resources
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csproj.GenerateResource.Cache
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\bin\Debug\ImageTask1.exe
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\bin\Debug\ImageTask1.pdb
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\bin\Debug\ImageTask1.exe.config
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.exe
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.pdb
-C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\bin\Debug\ImageTask1.exe
-C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csprojResolveAssemblyReference.cache
-C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.Properties.Resources.resources
-C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csproj.GenerateResource.Cache
-C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\bin\Debug\ImageTask1.pdb
-C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.MainForm.resources
-C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.MDIForm.resources
-C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.OperationsForm.resources
