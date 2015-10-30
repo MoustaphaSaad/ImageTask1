@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series25 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series26 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series27 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series28 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series29 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series30 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series31 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series32 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +45,7 @@
             this.openImage2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.SegmaValue2 = new System.Windows.Forms.NumericUpDown();
             this.Gaussian2 = new System.Windows.Forms.Button();
@@ -96,7 +97,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.newFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LinearFilter1DButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -188,6 +189,13 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // newFormToolStripMenuItem
+            // 
+            this.newFormToolStripMenuItem.Name = "newFormToolStripMenuItem";
+            this.newFormToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.newFormToolStripMenuItem.Text = "New Form";
+            this.newFormToolStripMenuItem.Click += new System.EventHandler(this.newFormToolStripMenuItem_Click);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -196,6 +204,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.LinearFilter1DButton);
             this.splitContainer1.Panel1.Controls.Add(this.SegmaValue2);
             this.splitContainer1.Panel1.Controls.Add(this.Gaussian2);
             this.splitContainer1.Panel1.Controls.Add(this.MaskSize1);
@@ -668,27 +677,27 @@
             // 
             // chart2
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea7);
+            chartArea1.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea1);
             this.chart2.Location = new System.Drawing.Point(842, 212);
             this.chart2.Name = "chart2";
-            series25.ChartArea = "ChartArea1";
-            series25.Color = System.Drawing.Color.Gray;
-            series25.MarkerColor = System.Drawing.Color.Black;
-            series25.Name = "Intensity";
-            series26.ChartArea = "ChartArea1";
-            series26.Color = System.Drawing.Color.Red;
-            series26.Name = "Red";
-            series27.ChartArea = "ChartArea1";
-            series27.Color = System.Drawing.Color.Lime;
-            series27.Name = "Green";
-            series28.ChartArea = "ChartArea1";
-            series28.Color = System.Drawing.Color.Blue;
-            series28.Name = "Blue";
-            this.chart2.Series.Add(series25);
-            this.chart2.Series.Add(series26);
-            this.chart2.Series.Add(series27);
-            this.chart2.Series.Add(series28);
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.Gray;
+            series1.MarkerColor = System.Drawing.Color.Black;
+            series1.Name = "Intensity";
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.Red;
+            series2.Name = "Red";
+            series3.ChartArea = "ChartArea1";
+            series3.Color = System.Drawing.Color.Lime;
+            series3.Name = "Green";
+            series4.ChartArea = "ChartArea1";
+            series4.Color = System.Drawing.Color.Blue;
+            series4.Name = "Blue";
+            this.chart2.Series.Add(series1);
+            this.chart2.Series.Add(series2);
+            this.chart2.Series.Add(series3);
+            this.chart2.Series.Add(series4);
             this.chart2.Size = new System.Drawing.Size(193, 161);
             this.chart2.TabIndex = 9;
             this.chart2.Text = "chart2";
@@ -742,27 +751,27 @@
             // chart1
             // 
             this.chart1.BorderlineWidth = 0;
-            chartArea8.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea8);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Location = new System.Drawing.Point(842, 28);
             this.chart1.Name = "chart1";
-            series29.ChartArea = "ChartArea1";
-            series29.Color = System.Drawing.Color.Gray;
-            series29.MarkerColor = System.Drawing.Color.Black;
-            series29.Name = "Intensity";
-            series30.ChartArea = "ChartArea1";
-            series30.Color = System.Drawing.Color.Red;
-            series30.Name = "Red";
-            series31.ChartArea = "ChartArea1";
-            series31.Color = System.Drawing.Color.Lime;
-            series31.Name = "Green";
-            series32.ChartArea = "ChartArea1";
-            series32.Color = System.Drawing.Color.Blue;
-            series32.Name = "Blue";
-            this.chart1.Series.Add(series29);
-            this.chart1.Series.Add(series30);
-            this.chart1.Series.Add(series31);
-            this.chart1.Series.Add(series32);
+            series5.ChartArea = "ChartArea1";
+            series5.Color = System.Drawing.Color.Gray;
+            series5.MarkerColor = System.Drawing.Color.Black;
+            series5.Name = "Intensity";
+            series6.ChartArea = "ChartArea1";
+            series6.Color = System.Drawing.Color.Red;
+            series6.Name = "Red";
+            series7.ChartArea = "ChartArea1";
+            series7.Color = System.Drawing.Color.Lime;
+            series7.Name = "Green";
+            series8.ChartArea = "ChartArea1";
+            series8.Color = System.Drawing.Color.Blue;
+            series8.Name = "Blue";
+            this.chart1.Series.Add(series5);
+            this.chart1.Series.Add(series6);
+            this.chart1.Series.Add(series7);
+            this.chart1.Series.Add(series8);
             this.chart1.Size = new System.Drawing.Size(193, 161);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "chart1";
@@ -794,12 +803,15 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // newFormToolStripMenuItem
+            // LinearFilter1DButton
             // 
-            this.newFormToolStripMenuItem.Name = "newFormToolStripMenuItem";
-            this.newFormToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.newFormToolStripMenuItem.Text = "New Form";
-            this.newFormToolStripMenuItem.Click += new System.EventHandler(this.newFormToolStripMenuItem_Click);
+            this.LinearFilter1DButton.Location = new System.Drawing.Point(67, 539);
+            this.LinearFilter1DButton.Name = "LinearFilter1DButton";
+            this.LinearFilter1DButton.Size = new System.Drawing.Size(75, 23);
+            this.LinearFilter1DButton.TabIndex = 31;
+            this.LinearFilter1DButton.Text = "1DLinearFilter";
+            this.LinearFilter1DButton.UseVisualStyleBackColor = true;
+            this.LinearFilter1DButton.Click += new System.EventHandler(this.LinearFilter1DButton_Click);
             // 
             // Form1
             // 
@@ -910,6 +922,7 @@
         private System.Windows.Forms.NumericUpDown SegmaValue2;
         private System.Windows.Forms.Button Gaussian2;
         private System.Windows.Forms.ToolStripMenuItem newFormToolStripMenuItem;
+        private System.Windows.Forms.Button LinearFilter1DButton;
     }
 }
 

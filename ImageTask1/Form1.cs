@@ -309,5 +309,18 @@ namespace ImageTask1
             this.Show();
         }
 
+        private void LinearFilter1DButton_Click(object sender, EventArgs e)
+        {
+            if (img == null)
+                return;
+            tmp = img.Clone();
+            double[] values = new double[5];
+            for (int i = 0; i < 5; ++i)
+                values[i] = (double)1 / 5;
+                tmp = ImageOperation.LinearFilter1d(img, values, ImageOperation.PostProcessing.NO);
+            pictureBox2.Image = tmp.bitmap;
+            generateHistogram(tmp, chart2);
+        }
+
     }
 }

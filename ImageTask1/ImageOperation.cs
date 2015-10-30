@@ -434,7 +434,66 @@ namespace ImageTask1
 
             return nimage;
         }
+        public static Image LinearFilter1d(Image img, double[] values, PostProcessing op)
+        {
+            Image rowimg = new Image(img.Width,img.Height,img.Components);
+            Image finalimg = new Image(img.Width, img.Height, img.Components);
+            int mid = values.GetLength(0) / 2;
+            byte accR = 0, accG = 0, accB = 0;
+            Pixel p = new Pixel();
+            #region 1d mask go over rows
+            for (uint j = 0; j < img.Height; ++j)
+            {
 
+                for (uint i = 0; i < img.Width; ++i)
+                {
+                    for (int k = (int)i - mid, maskind = 0; k < (mid + i); ++k, ++maskind)
+                    {
+
+                        if (k >= 0&&k<img.Width)
+                        {
+                            p = img.getPixel((uint)k, j);
+                            accR += (byte)(p.R * values[maskind]);
+                            accG += (byte)(p.G * values[maskind]);
+                            accB += (byte)(p.B * values[maskind]);
+                        }
+                    }
+                    p.R = accR;
+                    p.G = accG;
+                    p.B = accB;
+                    rowimg.setPixel(i, j, p);
+                    accR = 0; accG = 0; accB = 0;
+                }
+            }
+            #endregion
+
+            #region 1d mask go over columns
+            for (uint i = 0; i < img.Width; ++i)
+            {
+                for (uint j = 0; j < img.Height; ++j)
+                {
+                    for (int k = (int)j - mid, maskind = 0; k < (mid + j); ++k, ++maskind)
+                    {
+
+                        if (k >= 0 && k < img.Height)
+                        {
+                            p = rowimg.getPixel(i, (uint)k);
+                            accR += (byte)(p.R * values[maskind]);
+                            accG += (byte)(p.G * values[maskind]);
+                            accB += (byte)(p.B * values[maskind]);
+                        }
+                    }
+                    p.R = accR;
+                    p.G = accG;
+                    p.B = accB;
+                    finalimg.setPixel(i, j, p);
+                    accR = 0; accG = 0; accB = 0;
+                }
+            }
+            #endregion
+
+            return finalimg;
+        }
         public static double[,] CreateGaussianFilter1(int size, double sigma)
         {
             double[,] filter = new double[size, size];
