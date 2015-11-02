@@ -35,10 +35,12 @@ namespace ImageTask1
             return newBmp;
         }
 
+
+
         public static Image load_PPM(string file)
         {
             Image result = null;
-            BinaryReader rd = new BinaryReader(new FileStream(file,FileMode.Open));
+            BinaryReader rd = new BinaryReader(new FileStream(file, FileMode.Open));
             int count = 0;
             int width = 0, height = 0;
             string type = "";
@@ -46,7 +48,7 @@ namespace ImageTask1
             {
                 while (count < 4)
                 {
-                    char c = (char) rd.PeekChar();
+                    char c = (char)rd.PeekChar();
                     if (c == '#')
                     {
                         while (rd.ReadChar() != '\n') ;
@@ -102,11 +104,11 @@ namespace ImageTask1
                     throw new Exception("Can't identify type");
                 }
 
-                result = new Image((uint) width, (uint) height, (uint) components);
+                result = new Image((uint)width, (uint)height, (uint)components);
 
                 if (type == "P3")
                 {
-                    int chars = (int) (rd.BaseStream.Length - rd.BaseStream.Position);
+                    int chars = (int)(rd.BaseStream.Length - rd.BaseStream.Position);
                     char[] data = rd.ReadChars(chars);
 
                     string val = "";
@@ -117,7 +119,7 @@ namespace ImageTask1
                         {
                             if (val != "")
                             {
-                                result[index] = (byte) int.Parse(val);
+                                result[index] = (byte)int.Parse(val);
                                 val = "";
                                 index++;
                             }
@@ -135,15 +137,6 @@ namespace ImageTask1
                     for (int i = 0; i < bytes; i++)
                         result[(uint)i] = data[i];
                 }
-
-                //it's Beeeeeeep BGR NOT RGB DAMN IT
-                for (uint i = 0; i < result.Buffer.Length; i += 3)
-                {
-                    byte tmp = result[i];
-                    result[i] = result[i + 2];
-                    result[i + 2] = tmp;
-                }
-
             }
             catch (Exception e)
             {
@@ -158,6 +151,10 @@ namespace ImageTask1
             return result;
         }
 
+
+
+
+
         private static int ReadInt(BinaryReader rd)
         {
             string val = "";
@@ -168,6 +165,10 @@ namespace ImageTask1
             rd.ReadByte();
             return int.Parse(val);
         }
+
+
+
+
 
         private static void save_P3(string file, Image img)
         {
@@ -185,13 +186,13 @@ namespace ImageTask1
 
                 rw.Write("255\n");
 
-                for (uint i = 0; i < img.Buffer.Length; i+=3)
+                for (uint i = 0; i < img.Buffer.Length; i += 3)
                 {
-                    rw.Write(img[i+2].ToString()+" ");
-                    rw.Write(img[i + 1].ToString()+" ");
+                    rw.Write(img[i + 2].ToString() + " ");
+                    rw.Write(img[i + 1].ToString() + " ");
                     rw.Write(img[i].ToString());
 
-                    if(i+3 != img.Buffer.Length)
+                    if (i + 3 != img.Buffer.Length)
                         rw.Write(" ");
                 }
             }
@@ -200,6 +201,9 @@ namespace ImageTask1
                 rw.Close();
             }
         }
+
+
+
 
         private static void save_P6(string file, Image img)
         {
@@ -222,13 +226,13 @@ namespace ImageTask1
                 rw.Close();
             }
 
-            BinaryWriter bw = new BinaryWriter(new FileStream(file,FileMode.Append));
+            BinaryWriter bw = new BinaryWriter(new FileStream(file, FileMode.Append));
 
             try
             {
                 for (int i = 0; i < img.Buffer.Length; i += 3)
                 {
-                    bw.Write(img.Buffer[i+2]);
+                    bw.Write(img.Buffer[i + 2]);
                     bw.Write(img.Buffer[i + 1]);
                     bw.Write(img.Buffer[i]);
                 }
@@ -238,6 +242,9 @@ namespace ImageTask1
                 bw.Close();
             }
         }
+
+
+
 
         public static Image LoadImage(string filePath)
         {
@@ -256,6 +263,9 @@ namespace ImageTask1
             }
         }
 
+
+
+
         public static void SaveImage(string filePath, Image img)
         {
             string ext = deduceEXT(filePath);
@@ -263,9 +273,10 @@ namespace ImageTask1
             if (ext.ToLower() == "p3")
             {
                 //save P3
-                filePath = filePath.Replace("."+ext, ".ppm");
-                save_P3(filePath,img);
-            }else if (ext.ToLower() == "p6")
+                filePath = filePath.Replace("." + ext, ".ppm");
+                save_P3(filePath, img);
+            }
+            else if (ext.ToLower() == "p6")
             {
                 //save P6
                 filePath = filePath.Replace("." + ext, ".ppm");
@@ -273,11 +284,11 @@ namespace ImageTask1
             }
             else
             {
-                if(ext.ToLower() == "jpg")
-                    img.bitmap.Save(filePath,ImageFormat.Jpeg);
-                else if(ext.ToLower() == "bmp")
+                if (ext.ToLower() == "jpg")
+                    img.bitmap.Save(filePath, ImageFormat.Jpeg);
+                else if (ext.ToLower() == "bmp")
                     img.bitmap.Save(filePath, ImageFormat.Bmp);
-                else if(ext.ToLower() == "png")
+                else if (ext.ToLower() == "png")
                     img.bitmap.Save(filePath, ImageFormat.Png);
                 else
                     throw new Exception("unidentified image type");

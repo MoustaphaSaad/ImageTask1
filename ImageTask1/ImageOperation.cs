@@ -113,6 +113,7 @@ namespace ImageTask1
 
             return result;
         }
+        
         public static Image GrayScale(Image img)
         {
             Image result = new Image(img.Width, img.Height, img.Components);
@@ -130,6 +131,7 @@ namespace ImageTask1
             }
             return result;
         }
+        
         private static int BrightnessBound(int value)
         {
             if (value > 255)
@@ -138,6 +140,7 @@ namespace ImageTask1
                 return 0;
             return value;
         }
+        
         public static Image Brightness(Image img, int value)
         {
             Image result = new Image(img.Width, img.Height, img.Components);
@@ -282,6 +285,7 @@ namespace ImageTask1
             }
             return img;
         }
+        
         public static void BitSlice(Image img, int bit, out Image r, out Image g, out Image b)
         {
             r = new Image(img.Width, img.Height, img.Components);
@@ -371,14 +375,28 @@ namespace ImageTask1
             else
                 return val;
         }
-
+        
+        public static double Normalization(double min, double max, double val)
+        {
+            if (min < 0)
+                min *= -1;
+            double res = (val + min) / (min + max);
+            return res;
+        }
+        
         public static Image LinearFilter(Image img, double[,] values, int OriginX, int OriginY, PostProcessing op)
         {
-            Image nimage = img.Clone();
-            int top = values.GetLength(0) - OriginY;
+            Image nimage = new Image(img.Width, img.Height, img.Components);
+            int top = OriginY;
             int down = values.GetLength(0) - top;
-            int left = values.GetLength(1) - OriginX;
+            int left = OriginX;
             int right = values.GetLength(1) - left;
+            double[,] reds = new double[img.Height, img.Width];
+            double[,] greens = new double[img.Height, img.Width];
+            double[,] blues = new double[img.Height, img.Width];
+            double min = double.MaxValue;
+            double max = double.MinValue;
+
             for (uint i = 0; i < img.Height; ++i)
             {
                 for (uint j = 0; j < img.Width; ++j)
@@ -399,12 +417,26 @@ namespace ImageTask1
                             {
                                 p = img.getPixel((uint)y, (uint)x);
                             }
-                            rr += p.R * values[nx, ny];
-                            gg += p.G * values[nx, ny];
-                            bb += p.B * values[nx, ny];
+                            rr += p.R * values[ny, nx];
+                            gg += p.G * values[ny, nx];
+                            bb += p.B * values[ny, nx];
                         }
                         ny = 0;
                     }
+                    min = Math.Min(min, Math.Min(rr, Math.Min(gg, bb)));
+                    max = Math.Max(max, Math.Max(rr, Math.Max(gg, bb)));
+                    reds[i, j] = rr;
+                    greens[i, j] = gg;
+                    blues[i, j] = bb;   
+                }
+            }
+            for (uint i = 0; i < img.Height; ++i)
+            {
+                for (uint j = 0; j < img.Width; ++j)
+                {
+                    double rr = reds[i, j];
+                    double gg = greens[i, j];
+                    double bb = blues[i, j];
                     Pixel np = new Pixel();
                     if (op == PostProcessing.NO)
                     {
@@ -412,7 +444,10 @@ namespace ImageTask1
                     }
                     else if (op == PostProcessing.ABSOLUTE)
                     {
-
+                        rr = Math.Abs(rr);
+                        gg = Math.Abs(gg);
+                        bb = Math.Abs(bb);
+                        np = new Pixel((byte)rr, (byte)gg, (byte)bb, 0);
                     }
                     else if (op == PostProcessing.CUTOFF)
                     {
@@ -423,17 +458,17 @@ namespace ImageTask1
                     }
                     else if (op == PostProcessing.NORMALIZATION)
                     {
-                        rr = rr / (/*values.GetLength(0) * values.GetLength(1) */ 255.0);
-                        gg = gg / (/*values.GetLength(0) * values.GetLength(1) */ 255.0);
-                        bb = bb / (/*values.GetLength(0) * values.GetLength(1) */ 255.0);
+                        rr = Normalization(min, max, rr);
+                        gg = Normalization(min, max, gg);
+                        bb = Normalization(min, max, bb); 
                         np = new Pixel((byte)(rr * 255), (byte)(gg * 255), (byte)(bb * 255), 0);
                     }
                     nimage.setPixel(j, i, np);
                 }
             }
-
-            return nimage;
+                return nimage;
         }
+        
         public static Image LinearFilter1d(Image img, double[] values, PostProcessing op)
         {
             Image rowimg = new Image(img.Width,img.Height,img.Components);
@@ -494,6 +529,7 @@ namespace ImageTask1
 
             return finalimg;
         }
+        
         public static double[,] CreateGaussianFilter1(int size, double sigma)
         {
             double[,] filter = new double[size, size];
@@ -536,60 +572,133 @@ namespace ImageTask1
                     filter[i, j] = (1.0 / (2 * Math.PI * sigma * sigma)) * Math.Pow(Math.E, (-1 * ((ni * ni + nj * nj) / (2.0 * sigma * sigma))));
                     sum += filter[i, j];
                 }
-                nj = 0;
+                nj = -1 * size / 2;
             }
             return filter;
         }
+        
+        public static Image SobelEdgeMagnitude(Image img1, Image img2, PostProcessing op)
+        {
+            Image nimage = new Image(img1.Width, img1.Height, img1.Components);
+            for (uint i = 0; i < img1.Height;++i ) 
+            {
+                for (uint j = 0; j < img1.Width; ++j)
+                {
+                    Pixel p1 = img1.getPixel(j, i);
+                    Pixel p2 = img2.getPixel(j, i);
 
+                    double rr = p1.R + p2.R;
+                    double gg = p1.G + p2.G;
+                    double bb = p1.B + p2.B;
+
+                    Pixel np = new Pixel();
+                    if (op == PostProcessing.CUTOFF)
+                    {
+                        rr = Clamp(0, 255, rr);
+                        gg = Clamp(0, 255, gg);
+                        bb = Clamp(0, 255, bb);
+                        np = new Pixel((byte)rr, (byte)gg, (byte)bb, 0);
+                    }
+                    else if (op == PostProcessing.NORMALIZATION)
+                    {
+                        rr = Normalization(0, 500, rr);
+                        gg = Normalization(0, 500, gg);
+                        bb = Normalization(0, 500, bb);
+                        np = new Pixel((byte)(rr * 255), (byte)(gg * 255), (byte)(bb * 255), 0);
+                    }
+                    nimage.setPixel(j, i, np);
+                }
+            }
+            //Image nimage = ImageOperation.Add(img1, img2, 1);
+            return nimage;
+        }
+     
         public static Image Contrast(Image img, int val)
         {
-            byte OldMaxR = 0, OldMaxB = 0, OldMaxG = 0, OldMinR = 255, OldMinG = 255, OldMinB = 255;
-            byte NewMaxR, NewMaxB, NewMaxG, NewMinR, NewMinG, NewMinB;
-            Image newimg = new Image(img.Width, img.Height, img.Components);
-            Pixel P;
-            #region GetMIN/MAX values of RGB
+            byte Rmax = 0;
+            byte Rmin = 255;
+            byte Gmax = 0;
+            byte Gmin = 255;
+            byte Bmax = 0;
+            byte Bmin = 255;
+            Pixel tmp;
             for (uint i = 0; i < img.Width; ++i)
             {
                 for (uint j = 0; j < img.Height; ++j)
                 {
-                    P = img.getPixel(i, j);
-                    if (P.R > OldMaxR)
-                        OldMaxR = P.R;
-                    if (P.G > OldMaxG)
-                        OldMaxG = P.G;
-                    if (P.B > OldMaxB)
-                        OldMaxB = P.B;
+                    tmp = img.getPixel(i, j);
 
-                    if (P.R < OldMinR)
-                        OldMinR = P.R;
-                    if (P.G < OldMinG)
-                        OldMinG = P.G;
-                    if (P.B < OldMinB)
-                        OldMinB = P.B;
+                    //max
+                    if (tmp.R > Rmax)
+                        Rmax = tmp.R;
+
+                    if (tmp.G > Gmax)
+                        Gmax = tmp.G;
+
+                    if (tmp.B > Bmax)
+                        Bmax = tmp.B;
+
+                    //min
+                    if (tmp.R < Rmin)
+                        Rmin = tmp.R;
+
+                    if (tmp.G < Gmin)
+                        Gmin = tmp.G;
+
+                    if (tmp.B < Bmin)
+                        Bmin = tmp.B;
                 }
             }
-            byte x = 255;
-            NewMaxR = OldMaxR + val > x ? x : (byte)(OldMaxR + val);
-            NewMaxG = OldMaxG + val > x ? x : (byte)(OldMaxG + val);
-            NewMaxB = OldMaxB + val > x ? x : (byte)(OldMaxB + val);
-            NewMinR = OldMinR - val < 0 ? (byte)0 : (byte)(OldMinR - val);
-            NewMinG = OldMinG - val < 0 ? (byte)0 : (byte)(OldMinG - val);
-            NewMinB = OldMinB - val < 0 ? (byte)0 : (byte)(OldMinB - val);
-            #endregion
+
+
+            double r, g, b;
 
             for (uint i = 0; i < img.Width; ++i)
             {
                 for (uint j = 0; j < img.Height; ++j)
                 {
-                    P = img.getPixel(i, j);
-                    double e = ((double)(P.R - OldMinR) / (OldMaxR - OldMinR));
-                    P.R = (byte)BrightnessBound((int)(((double)(P.R - OldMinR) / (OldMaxR - OldMinR)) * (NewMaxR - NewMinR) + NewMinR));
-                    P.G = (byte)BrightnessBound((int)(((double)(P.G - OldMinG) / (OldMaxG - OldMinG)) * (NewMaxG - NewMinG) + NewMinG));
-                    P.B = (byte)BrightnessBound((int)(((double)(P.B - OldMinB) / (OldMaxB - OldMinB)) * (NewMaxB - NewMinB) + NewMinB));
-                    newimg.setPixel(i, j, P);
+
+                    tmp = img.getPixel(i, j);
+
+                    r = (tmp.R - Rmin);
+                    r /= (Rmax - Rmin);
+                    r *= (Rmax + val) - (Rmin - val);
+                    r += Rmin - val;
+
+                    g = (tmp.G - Gmin);
+                    g /= (Gmax - Gmin);
+
+                    g *= (Gmax + val) - (Gmin - val);
+                    g += Gmin - val;
+
+                    b = (tmp.B - Bmin);
+                    b /= (Bmax - Bmin);
+                    b *= (Bmax + val) - (Bmin - val);
+                    b += Bmin - val;
+
+                    if (r > 255)
+                        r = 255;
+                    else if (r < 0)
+                        r = 0;
+
+                    if (g > 255)
+                        g = 255;
+                    else if (g < 0)
+                        g = 0;
+
+                    if (b > 255)
+                        b = 255;
+                    else if (b < 0)
+                        b = 0;
+
+                    tmp.R = (byte)r;
+                    tmp.G = (byte)g;
+                    tmp.B = (byte)b;
+
+                    img.setPixel(i, j, tmp);
                 }
             }
-            return newimg;
+            return img;
         }
     }
 }

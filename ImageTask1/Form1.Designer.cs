@@ -47,6 +47,13 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.SobelMagnitude = new System.Windows.Forms.Button();
+            this.SobelVertical = new System.Windows.Forms.Button();
+            this.SobelHorizontal = new System.Windows.Forms.Button();
+            this.Laplacian = new System.Windows.Forms.Button();
+            this.SetMask2 = new System.Windows.Forms.Button();
+            this.SetMask = new System.Windows.Forms.Button();
+            this.LinearFilter1DButton = new System.Windows.Forms.Button();
             this.SegmaValue2 = new System.Windows.Forms.NumericUpDown();
             this.Gaussian2 = new System.Windows.Forms.Button();
             this.MaskSize1 = new System.Windows.Forms.NumericUpDown();
@@ -97,7 +104,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.LinearFilter1DButton = new System.Windows.Forms.Button();
+            this.ContrastSlider = new System.Windows.Forms.TrackBar();
+            this.Contrast = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -128,6 +136,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContrastSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -204,6 +213,14 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.Contrast);
+            this.splitContainer1.Panel1.Controls.Add(this.ContrastSlider);
+            this.splitContainer1.Panel1.Controls.Add(this.SobelMagnitude);
+            this.splitContainer1.Panel1.Controls.Add(this.SobelVertical);
+            this.splitContainer1.Panel1.Controls.Add(this.SobelHorizontal);
+            this.splitContainer1.Panel1.Controls.Add(this.Laplacian);
+            this.splitContainer1.Panel1.Controls.Add(this.SetMask2);
+            this.splitContainer1.Panel1.Controls.Add(this.SetMask);
             this.splitContainer1.Panel1.Controls.Add(this.LinearFilter1DButton);
             this.splitContainer1.Panel1.Controls.Add(this.SegmaValue2);
             this.splitContainer1.Panel1.Controls.Add(this.Gaussian2);
@@ -253,9 +270,79 @@
             this.splitContainer1.Panel2.Controls.Add(this.label6);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox2);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(1295, 659);
+            this.splitContainer1.Size = new System.Drawing.Size(1295, 689);
             this.splitContainer1.SplitterDistance = 244;
             this.splitContainer1.TabIndex = 4;
+            // 
+            // SobelMagnitude
+            // 
+            this.SobelMagnitude.Location = new System.Drawing.Point(113, 568);
+            this.SobelMagnitude.Name = "SobelMagnitude";
+            this.SobelMagnitude.Size = new System.Drawing.Size(95, 23);
+            this.SobelMagnitude.TabIndex = 37;
+            this.SobelMagnitude.Text = "Sobel Magnitude";
+            this.SobelMagnitude.UseVisualStyleBackColor = true;
+            this.SobelMagnitude.Click += new System.EventHandler(this.SobelMagnitude_Click);
+            // 
+            // SobelVertical
+            // 
+            this.SobelVertical.Location = new System.Drawing.Point(113, 597);
+            this.SobelVertical.Name = "SobelVertical";
+            this.SobelVertical.Size = new System.Drawing.Size(95, 23);
+            this.SobelVertical.TabIndex = 36;
+            this.SobelVertical.Text = "Sobel Vertical";
+            this.SobelVertical.UseVisualStyleBackColor = true;
+            this.SobelVertical.Click += new System.EventHandler(this.SobelVertical_Click);
+            // 
+            // SobelHorizontal
+            // 
+            this.SobelHorizontal.Location = new System.Drawing.Point(12, 597);
+            this.SobelHorizontal.Name = "SobelHorizontal";
+            this.SobelHorizontal.Size = new System.Drawing.Size(95, 23);
+            this.SobelHorizontal.TabIndex = 35;
+            this.SobelHorizontal.Text = "Sobel Horizontal";
+            this.SobelHorizontal.UseVisualStyleBackColor = true;
+            this.SobelHorizontal.Click += new System.EventHandler(this.SobelHorizontal_Click);
+            // 
+            // Laplacian
+            // 
+            this.Laplacian.Location = new System.Drawing.Point(12, 568);
+            this.Laplacian.Name = "Laplacian";
+            this.Laplacian.Size = new System.Drawing.Size(95, 23);
+            this.Laplacian.TabIndex = 34;
+            this.Laplacian.Text = "Laplacian Filter";
+            this.Laplacian.UseVisualStyleBackColor = true;
+            this.Laplacian.Click += new System.EventHandler(this.Laplacian_Click);
+            // 
+            // SetMask2
+            // 
+            this.SetMask2.Location = new System.Drawing.Point(93, 451);
+            this.SetMask2.Name = "SetMask2";
+            this.SetMask2.Size = new System.Drawing.Size(75, 23);
+            this.SetMask2.TabIndex = 33;
+            this.SetMask2.Text = "Set Mask 2";
+            this.SetMask2.UseVisualStyleBackColor = true;
+            this.SetMask2.Click += new System.EventHandler(this.SetMask2_Click);
+            // 
+            // SetMask
+            // 
+            this.SetMask.Location = new System.Drawing.Point(12, 451);
+            this.SetMask.Name = "SetMask";
+            this.SetMask.Size = new System.Drawing.Size(75, 23);
+            this.SetMask.TabIndex = 32;
+            this.SetMask.Text = "Set Mask";
+            this.SetMask.UseVisualStyleBackColor = true;
+            this.SetMask.Click += new System.EventHandler(this.SetMask_Click);
+            // 
+            // LinearFilter1DButton
+            // 
+            this.LinearFilter1DButton.Location = new System.Drawing.Point(93, 539);
+            this.LinearFilter1DButton.Name = "LinearFilter1DButton";
+            this.LinearFilter1DButton.Size = new System.Drawing.Size(75, 23);
+            this.LinearFilter1DButton.TabIndex = 31;
+            this.LinearFilter1DButton.Text = "1DLinearFilter";
+            this.LinearFilter1DButton.UseVisualStyleBackColor = true;
+            this.LinearFilter1DButton.Click += new System.EventHandler(this.LinearFilter1DButton_Click);
             // 
             // SegmaValue2
             // 
@@ -312,7 +399,7 @@
             // 
             // LinearFilter
             // 
-            this.LinearFilter.Location = new System.Drawing.Point(67, 452);
+            this.LinearFilter.Location = new System.Drawing.Point(12, 539);
             this.LinearFilter.Name = "LinearFilter";
             this.LinearFilter.Size = new System.Drawing.Size(75, 23);
             this.LinearFilter.TabIndex = 25;
@@ -476,7 +563,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(13, 112);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Rotation";
             // 
@@ -492,7 +579,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(82, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Shear Y";
             // 
@@ -501,7 +588,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(13, 62);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Shear X";
             // 
@@ -524,7 +611,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(82, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Scale Y";
             // 
@@ -533,7 +620,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Scale X";
             // 
@@ -644,7 +731,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(3, 306);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(87, 13);
+            this.label10.Size = new System.Drawing.Size(88, 13);
             this.label10.TabIndex = 13;
             this.label10.Text = "Before / Image 2";
             // 
@@ -662,7 +749,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(842, 196);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 13);
+            this.label9.Size = new System.Drawing.Size(32, 13);
             this.label9.TabIndex = 11;
             this.label9.Text = "After";
             // 
@@ -671,7 +758,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(842, 12);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 13);
+            this.label8.Size = new System.Drawing.Size(39, 13);
             this.label8.TabIndex = 10;
             this.label8.Text = "Before";
             // 
@@ -707,7 +794,7 @@
             this.BlueFlag.AutoSize = true;
             this.BlueFlag.Location = new System.Drawing.Point(925, 402);
             this.BlueFlag.Name = "BlueFlag";
-            this.BlueFlag.Size = new System.Drawing.Size(47, 17);
+            this.BlueFlag.Size = new System.Drawing.Size(46, 17);
             this.BlueFlag.TabIndex = 8;
             this.BlueFlag.Text = "Blue";
             this.BlueFlag.UseVisualStyleBackColor = true;
@@ -729,7 +816,7 @@
             this.RedFlag.AutoSize = true;
             this.RedFlag.Location = new System.Drawing.Point(926, 379);
             this.RedFlag.Name = "RedFlag";
-            this.RedFlag.Size = new System.Drawing.Size(46, 17);
+            this.RedFlag.Size = new System.Drawing.Size(45, 17);
             this.RedFlag.TabIndex = 6;
             this.RedFlag.Text = "Red";
             this.RedFlag.UseVisualStyleBackColor = true;
@@ -742,7 +829,7 @@
             this.IntensityFlag.CheckState = System.Windows.Forms.CheckState.Checked;
             this.IntensityFlag.Location = new System.Drawing.Point(843, 380);
             this.IntensityFlag.Name = "IntensityFlag";
-            this.IntensityFlag.Size = new System.Drawing.Size(65, 17);
+            this.IntensityFlag.Size = new System.Drawing.Size(69, 17);
             this.IntensityFlag.TabIndex = 5;
             this.IntensityFlag.Text = "Intensity";
             this.IntensityFlag.UseVisualStyleBackColor = true;
@@ -781,7 +868,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(416, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 13);
+            this.label7.Size = new System.Drawing.Size(32, 13);
             this.label7.TabIndex = 3;
             this.label7.Text = "After";
             // 
@@ -790,7 +877,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 13);
+            this.label6.Size = new System.Drawing.Size(88, 13);
             this.label6.TabIndex = 2;
             this.label6.Text = "Before / Image 1";
             // 
@@ -803,21 +890,32 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // LinearFilter1DButton
+            // ContrastSlider
             // 
-            this.LinearFilter1DButton.Location = new System.Drawing.Point(67, 539);
-            this.LinearFilter1DButton.Name = "LinearFilter1DButton";
-            this.LinearFilter1DButton.Size = new System.Drawing.Size(75, 23);
-            this.LinearFilter1DButton.TabIndex = 31;
-            this.LinearFilter1DButton.Text = "1DLinearFilter";
-            this.LinearFilter1DButton.UseVisualStyleBackColor = true;
-            this.LinearFilter1DButton.Click += new System.EventHandler(this.LinearFilter1DButton_Click);
+            this.ContrastSlider.LargeChange = 15;
+            this.ContrastSlider.Location = new System.Drawing.Point(93, 641);
+            this.ContrastSlider.Maximum = 50;
+            this.ContrastSlider.Minimum = -50;
+            this.ContrastSlider.Name = "ContrastSlider";
+            this.ContrastSlider.Size = new System.Drawing.Size(148, 45);
+            this.ContrastSlider.SmallChange = 3;
+            this.ContrastSlider.TabIndex = 38;
+            // 
+            // Contrast
+            // 
+            this.Contrast.Location = new System.Drawing.Point(12, 641);
+            this.Contrast.Name = "Contrast";
+            this.Contrast.Size = new System.Drawing.Size(75, 23);
+            this.Contrast.TabIndex = 39;
+            this.Contrast.Text = "Contrast";
+            this.Contrast.UseVisualStyleBackColor = true;
+            this.Contrast.Click += new System.EventHandler(this.Contrast_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1295, 683);
+            this.ClientSize = new System.Drawing.Size(1295, 713);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -856,6 +954,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContrastSlider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -923,6 +1022,14 @@
         private System.Windows.Forms.Button Gaussian2;
         private System.Windows.Forms.ToolStripMenuItem newFormToolStripMenuItem;
         private System.Windows.Forms.Button LinearFilter1DButton;
+        private System.Windows.Forms.Button SetMask;
+        private System.Windows.Forms.Button SetMask2;
+        private System.Windows.Forms.Button Laplacian;
+        private System.Windows.Forms.Button SobelVertical;
+        private System.Windows.Forms.Button SobelHorizontal;
+        private System.Windows.Forms.Button SobelMagnitude;
+        private System.Windows.Forms.Button Contrast;
+        private System.Windows.Forms.TrackBar ContrastSlider;
     }
 }
 
