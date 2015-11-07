@@ -306,9 +306,9 @@ namespace ImageTask1
 
         private void newFormToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //MainForm f = new MainForm();
+            MainForm f = new MainForm();
             this.Hide();
-            //f.ShowDialog();
+            f.ShowDialog();
             this.Show();
         }
 
@@ -320,7 +320,7 @@ namespace ImageTask1
             double[] values = new double[5];
             for (int i = 0; i < 5; ++i)
                 values[i] = (double)1 / 5;
-                tmp = ImageOperation.LinearFilter1d(tmp, values, ImageOperation.PostProcessing.NO);
+                tmp = ImageOperation.LinearFilter1d(tmp, values,2,3, ImageOperation.PostProcessing.NO);
             pictureBox2.Image = tmp.bitmap;
             generateHistogram(tmp, chart2);
         }

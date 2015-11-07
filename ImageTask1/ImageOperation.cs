@@ -468,12 +468,13 @@ namespace ImageTask1
             }
                 return nimage;
         }
-        
-        public static Image LinearFilter1d(Image img, double[] values, PostProcessing op)
+
+        public static Image LinearFilter1d(Image img, double[] values, int OriginX, int OriginY, PostProcessing op)
         {
             Image rowimg = new Image(img.Width,img.Height,img.Components);
             Image finalimg = new Image(img.Width, img.Height, img.Components);
-            int mid = values.GetLength(0) / 2;
+            int leftx = values.GetLength(0)-OriginX;
+            int downy = values.GetLength(0) - OriginY;
             byte accR = 0, accG = 0, accB = 0;
             Pixel p = new Pixel();
             #region 1d mask go over rows
@@ -482,7 +483,7 @@ namespace ImageTask1
 
                 for (uint i = 0; i < img.Width; ++i)
                 {
-                    for (int k = (int)i - mid, maskind = 0; k < (mid + i); ++k, ++maskind)
+                    for (int k = (int)i - OriginX, maskind = 0; k < (leftx + i); ++k, ++maskind)
                     {
 
                         if (k >= 0&&k<img.Width)
@@ -507,7 +508,7 @@ namespace ImageTask1
             {
                 for (uint j = 0; j < img.Height; ++j)
                 {
-                    for (int k = (int)j - mid, maskind = 0; k < (mid + j); ++k, ++maskind)
+                    for (int k = (int)j - OriginY, maskind = 0; k < (downy + j); ++k, ++maskind)
                     {
 
                         if (k >= 0 && k < img.Height)

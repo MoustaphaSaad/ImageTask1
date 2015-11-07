@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ImageTask1
 {
-    class Image
+    public class Image
     {
 
         private byte[] m_buffer;
