@@ -46,3 +46,4 @@ C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.exe
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.pdb
 C:\Users\Kero Ishak\Documents\GitHub\ImageTask1\ImageTask1\obj\Debug\ImageTask1.csprojResolveAssemblyReference.cache
+D:\4th Year\First Term\Image Processing\Tasks\ImageTask1\ImageTask1\obj\Debug\ImageTask1.MaskMatrix.resources

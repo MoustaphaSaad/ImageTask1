@@ -18,6 +18,9 @@ namespace ImageTask1
         private Image tmp;
         private Image img;
         private Image img2;
+        private MaskMatrix Mask;
+        private MaskMatrix Mask2;
+        private Image edged;
         public Form1()
         {
             InitializeComponent();
@@ -269,9 +272,9 @@ namespace ImageTask1
             if (img == null)
                 return;
             tmp = img.Clone();
-            double[,] values = new double[5, 5] { { 1 / 25.0, 1 / 25.0, 1 / 25.0, 1 / 25.0, 1 / 25.0 }, { 1 / 25.0, 1 / 25.0, 1 / 25.0, 1 / 25.0, 1 / 25.0 },
-            {1/25.0,1/25.0,1/25.0,1/25.0,1/25.0},{1/25.0,1/25.0,1/25.0,1/25.0,1/25.0},{1/25.0,1/25.0,1/25.0,1/25.0,1/25.0} };
-            tmp = ImageOperation.LinearFilter(img, values, 1, 1, ImageOperation.PostProcessing.NORMALIZATION);
+            double[,] values = Mask.GetMask();
+            Point origin = Mask.GetOrigin();
+            tmp = ImageOperation.LinearFilter(img, values, origin.X, origin.Y, ImageOperation.PostProcessing.NORMALIZATION);
             pictureBox2.Image = tmp.bitmap;
             generateHistogram(tmp, chart2);
         }
@@ -282,7 +285,7 @@ namespace ImageTask1
                 return;
             tmp = img.Clone();
             double[,] values = ImageOperation.CreateGaussianFilter1((int)MaskSize1.Value ,(double)SegmaValue1.Value);
-            tmp = ImageOperation.LinearFilter(img, values, (int)MaskSize1.Value / 2, (int)MaskSize1.Value/2, ImageOperation.PostProcessing.NO);
+            tmp = ImageOperation.LinearFilter(tmp, values, (int)MaskSize1.Value / 2, (int)MaskSize1.Value/2, ImageOperation.PostProcessing.NO);
             pictureBox2.Image = tmp.bitmap;
             generateHistogram(tmp, chart2);
 
@@ -296,16 +299,16 @@ namespace ImageTask1
             tmp = img.Clone();
             int size;
             double[,] values = ImageOperation.CreateGaussianFilter2((double)SegmaValue2.Value,out size);
-            tmp = ImageOperation.LinearFilter(img, values, size / 2, size / 2, ImageOperation.PostProcessing.NO);
+            tmp = ImageOperation.LinearFilter(tmp, values, size / 2, size / 2, ImageOperation.PostProcessing.NO);
             pictureBox2.Image = tmp.bitmap;
             generateHistogram(tmp, chart2);
         }
 
         private void newFormToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MainForm f = new MainForm();
+            //MainForm f = new MainForm();
             this.Hide();
-            f.ShowDialog();
+            //f.ShowDialog();
             this.Show();
         }
 
@@ -317,10 +320,110 @@ namespace ImageTask1
             double[] values = new double[5];
             for (int i = 0; i < 5; ++i)
                 values[i] = (double)1 / 5;
-                tmp = ImageOperation.LinearFilter1d(img, values, ImageOperation.PostProcessing.NO);
+                tmp = ImageOperation.LinearFilter1d(tmp, values, ImageOperation.PostProcessing.NO);
             pictureBox2.Image = tmp.bitmap;
             generateHistogram(tmp, chart2);
         }
 
+        private void SetMask_Click(object sender, EventArgs e)
+        {
+            Mask = new MaskMatrix();
+            Mask.Show();
+        }
+
+        private void SetMask2_Click(object sender, EventArgs e)
+        {
+            Mask2 = new MaskMatrix();
+            Mask2.Show();
+        }
+
+        private void Laplacian_Click(object sender, EventArgs e)
+        {
+            if (img == null)
+                return;
+            tmp = img.Clone();
+            double[,] values = Mask.GetMask();
+            Point origin = Mask.GetOrigin();
+            if (Mask.IsOne() == false)
+            {
+                MessageBox.Show("The Summition of Mask is not equal 1 ","Opps",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            tmp = ImageOperation.LinearFilter(tmp, values, origin.X, origin.Y, ImageOperation.PostProcessing.CUTOFF);
+            pictureBox2.Image = tmp.bitmap;
+            generateHistogram(tmp, chart2);
+        }
+
+        private void SobelHorizontal_Click(object sender, EventArgs e)
+        {
+            if (img == null)
+                return;
+            tmp = img.Clone();
+            double[,] values = Mask.GetMask();
+            Point origin = Mask.GetOrigin();
+            if (Mask.IsZero() == false)
+            {
+                MessageBox.Show("The Summition of Mask is not equal 1 ", "Opps", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            tmp = ImageOperation.LinearFilter(img, values, origin.X, origin.Y, ImageOperation.PostProcessing.CUTOFF);
+            pictureBox2.Image = tmp.bitmap;
+            generateHistogram(tmp, chart2);
+        }
+
+        private void SobelVertical_Click(object sender, EventArgs e)
+        {
+            if (img == null)
+                return;
+            tmp = img.Clone();
+            double[,] values = Mask.GetMask();
+            Point origin = Mask.GetOrigin();
+            if (Mask.IsZero() == false)
+            {
+                MessageBox.Show("The Summition of Mask is not equal 1 ", "Opps", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            tmp = ImageOperation.LinearFilter(img, values, origin.X, origin.Y, ImageOperation.PostProcessing.CUTOFF);
+            pictureBox2.Image = tmp.bitmap;
+            generateHistogram(tmp, chart2);
+        }
+
+        private void SobelMagnitude_Click(object sender, EventArgs e)
+        {
+            if (img == null)
+                return;
+            tmp = img.Clone();
+            img2 = img.Clone();
+            edged = img.Clone();
+            double[,] values1 = Mask.GetMask();
+            double[,] values2 = Mask2.GetMask();
+            Point origin1 = Mask.GetOrigin();
+            Point origin2 = Mask2.GetOrigin();
+            if (Mask.IsZero() == false)
+            {
+                MessageBox.Show("The Summition of Mask 1 is not equal 0", "Opps", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            tmp = ImageOperation.LinearFilter(img, values1, origin1.X, origin1.Y, ImageOperation.PostProcessing.ABSOLUTE);
+            if (Mask2.IsZero() == false)
+            {
+                MessageBox.Show("The Summition of Mask 2 is not equal 0", "Opps", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            img2 = ImageOperation.LinearFilter(img, values2, origin2.X, origin2.Y, ImageOperation.PostProcessing.ABSOLUTE);
+ 
+            edged = ImageOperation.SobelEdgeMagnitude(tmp, img2,ImageOperation.PostProcessing.CUTOFF);
+            pictureBox2.Image = edged.bitmap;
+            generateHistogram(edged, chart2);
+        }
+
+        private void Contrast_Click(object sender, EventArgs e)
+        {
+            tmp = img.Clone();
+            tmp = ImageOperation.Contrast(img, ContrastSlider.Value);
+            pictureBox2.Image = tmp.bitmap;
+            generateHistogram(tmp, chart2);
+        }
+        
     }
 }
