@@ -34,18 +34,27 @@ namespace ImageTask1
             Before = ImageOperation.TransformImage(f.img, 0, 0, 0, (float)x, (float)y);
             this.BeforePictureBox.Image = Before.bitmap;
             this.AfterPictureBox.Image = After.bitmap;
-
-            if (op == Operations.Contrast)
-            { Slider.Maximum = 50; Slider.Minimum = -50; this.Text = "Brighthness"; }
-            else if(op==Operations.Brighthness)
+            
+            if (Op == Operations.Contrast)
+            { 
+                Slider.Maximum = 50; Slider.Minimum = -50;
+                this.Text = "Contrast"; 
+                this.MaskGroupBox.Visible = false;
+                ApplyButton.Visible = false;
+                RadioButton1D.Visible = false;
+                RadioButton2D.Visible = false;
+            }
+            else if(Op==Operations.Brighthness)
             {
                 this.Text = "Brighthness";
                 MaskGroupBox.Visible = false;
                 RadioButton1D.Visible = false;
                 RadioButton2D.Visible = false;
-                PreviewButton.Visible = false;
+                ApplyButton.Visible = false;
+                RadioButton1D.Visible = false;
+                RadioButton2D.Visible = false;
             }
-            else if(op==Operations.MeanFilter)
+            else if(Op==Operations.MeanFilter)
             {
                 this.Text = "Mean Filter";
                 Slider.Visible = false;
@@ -80,6 +89,7 @@ namespace ImageTask1
                 {
                     //add 2d filer here
                 }
+
             }
             this.AfterPictureBox.Image = After.bitmap;
         }

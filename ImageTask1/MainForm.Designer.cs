@@ -47,18 +47,20 @@
             this.grayScaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.brightnessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contrastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filtersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.meanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.BlueFlag = new System.Windows.Forms.CheckBox();
             this.GreenFlag = new System.Windows.Forms.CheckBox();
             this.RedFlag = new System.Windows.Forms.CheckBox();
             this.IntensityFlag = new System.Windows.Forms.CheckBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.filtersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.meanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -68,7 +70,7 @@
             this.pixelOperationsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1071, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -133,11 +135,33 @@
             this.contrastToolStripMenuItem.Text = "Contrast";
             this.contrastToolStripMenuItem.Click += new System.EventHandler(this.contrastToolStripMenuItem_Click);
             // 
+            // filtersToolStripMenuItem
+            // 
+            this.filtersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sobalToolStripMenuItem,
+            this.meanToolStripMenuItem});
+            this.filtersToolStripMenuItem.Name = "filtersToolStripMenuItem";
+            this.filtersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filtersToolStripMenuItem.Text = "Filters";
+            // 
+            // sobalToolStripMenuItem
+            // 
+            this.sobalToolStripMenuItem.Name = "sobalToolStripMenuItem";
+            this.sobalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sobalToolStripMenuItem.Text = "Sobal";
+            // 
+            // meanToolStripMenuItem
+            // 
+            this.meanToolStripMenuItem.Name = "meanToolStripMenuItem";
+            this.meanToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.meanToolStripMenuItem.Text = "Mean";
+            this.meanToolStripMenuItem.Click += new System.EventHandler(this.meanToolStripMenuItem_Click);
+            // 
             // chart2
             // 
             chartArea1.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea1);
-            this.chart2.Location = new System.Drawing.Point(874, 214);
+            this.chart2.Location = new System.Drawing.Point(39, 193);
             this.chart2.Name = "chart2";
             series1.ChartArea = "ChartArea1";
             series1.Color = System.Drawing.Color.Gray;
@@ -163,7 +187,7 @@
             // BlueFlag
             // 
             this.BlueFlag.AutoSize = true;
-            this.BlueFlag.Location = new System.Drawing.Point(980, 405);
+            this.BlueFlag.Location = new System.Drawing.Point(160, 393);
             this.BlueFlag.Name = "BlueFlag";
             this.BlueFlag.Size = new System.Drawing.Size(47, 17);
             this.BlueFlag.TabIndex = 14;
@@ -174,7 +198,7 @@
             // GreenFlag
             // 
             this.GreenFlag.AutoSize = true;
-            this.GreenFlag.Location = new System.Drawing.Point(890, 405);
+            this.GreenFlag.Location = new System.Drawing.Point(75, 393);
             this.GreenFlag.Name = "GreenFlag";
             this.GreenFlag.Size = new System.Drawing.Size(55, 17);
             this.GreenFlag.TabIndex = 13;
@@ -185,7 +209,7 @@
             // RedFlag
             // 
             this.RedFlag.AutoSize = true;
-            this.RedFlag.Location = new System.Drawing.Point(980, 382);
+            this.RedFlag.Location = new System.Drawing.Point(160, 370);
             this.RedFlag.Name = "RedFlag";
             this.RedFlag.Size = new System.Drawing.Size(46, 17);
             this.RedFlag.TabIndex = 12;
@@ -198,7 +222,7 @@
             this.IntensityFlag.AutoSize = true;
             this.IntensityFlag.Checked = true;
             this.IntensityFlag.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.IntensityFlag.Location = new System.Drawing.Point(890, 382);
+            this.IntensityFlag.Location = new System.Drawing.Point(75, 370);
             this.IntensityFlag.Name = "IntensityFlag";
             this.IntensityFlag.Size = new System.Drawing.Size(65, 17);
             this.IntensityFlag.TabIndex = 11;
@@ -211,7 +235,7 @@
             this.chart1.BorderlineWidth = 0;
             chartArea2.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea2);
-            this.chart1.Location = new System.Drawing.Point(874, 30);
+            this.chart1.Location = new System.Drawing.Point(39, 19);
             this.chart1.Name = "chart1";
             series5.ChartArea = "ChartArea1";
             series5.Color = System.Drawing.Color.Gray;
@@ -234,47 +258,38 @@
             this.chart1.TabIndex = 10;
             this.chart1.Text = "chart1";
             // 
-            // filtersToolStripMenuItem
+            // groupBox1
             // 
-            this.filtersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sobalToolStripMenuItem,
-            this.meanToolStripMenuItem});
-            this.filtersToolStripMenuItem.Name = "filtersToolStripMenuItem";
-            this.filtersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.filtersToolStripMenuItem.Text = "Filters";
-            // 
-            // meanToolStripMenuItem
-            // 
-            this.meanToolStripMenuItem.Name = "meanToolStripMenuItem";
-            this.meanToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.meanToolStripMenuItem.Text = "Mean";
-            this.meanToolStripMenuItem.Click += new System.EventHandler(this.meanToolStripMenuItem_Click);
-            // 
-            // sobalToolStripMenuItem
-            // 
-            this.sobalToolStripMenuItem.Name = "sobalToolStripMenuItem";
-            this.sobalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.sobalToolStripMenuItem.Text = "Sobal";
+            this.groupBox1.Controls.Add(this.chart1);
+            this.groupBox1.Controls.Add(this.BlueFlag);
+            this.groupBox1.Controls.Add(this.chart2);
+            this.groupBox1.Controls.Add(this.RedFlag);
+            this.groupBox1.Controls.Add(this.GreenFlag);
+            this.groupBox1.Controls.Add(this.IntensityFlag);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox1.Location = new System.Drawing.Point(797, 24);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(274, 460);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 476);
-            this.Controls.Add(this.chart2);
-            this.Controls.Add(this.BlueFlag);
-            this.Controls.Add(this.GreenFlag);
-            this.Controls.Add(this.RedFlag);
-            this.Controls.Add(this.IntensityFlag);
-            this.Controls.Add(this.chart1);
+            this.ClientSize = new System.Drawing.Size(1071, 484);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,6 +315,7 @@
         private System.Windows.Forms.ToolStripMenuItem filtersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem meanToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox1;
 
     }
 }
