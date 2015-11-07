@@ -19,12 +19,10 @@ namespace ImageTask1
             InitializeComponent();
             this.MdiChildActivate += MainForm_MdiChildActivate;
         }
-
         void MainForm_MdiChildActivate(object sender, EventArgs e)
         {   
               IntensityFlag_CheckedChanged(sender, e);
         }
-
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -43,19 +41,28 @@ namespace ImageTask1
                 if (img != null)
                 {
                     MDIForm f = new MDIForm(ref img, this);
-                    
+                    f.FormClosed += ClearHistograms;
                 }
             }
         }
-
+        void ClearHistograms(object sender, FormClosedEventArgs e)
+        {
+            foreach (var series in chart1.Series)
+            {
+                series.Points.Clear();
+            }
+            foreach (var series in chart2.Series)
+            {
+                series.Points.Clear();
+            }
+        }
         private void GrayScale_Click(object sender, EventArgs e)
         {
             MDIForm f = ((MDIForm)ActiveMdiChild);
-            f.tmp = f.img.Clone();
-            f.tmp = ImageOperation.GrayScale(f.tmp);
-            f.UpdateTMP();
+            f.img = ImageOperation.GrayScale(f.img);
+            //f.UpdateTMP();
             generateHistogram(f.img, chart1);
-            generateHistogram(f.tmp, chart2);
+            //generateHistogram(f.tmp, chart2);
         }
         private void generateHistogram(Image image, Chart chart)
         {
@@ -123,7 +130,6 @@ namespace ImageTask1
             f.ShowDialog();
             this.IsAccessible = true;
         }
-
         //IntensityFlag function is used to handle red, green, blue or intensity check box changing
         private void IntensityFlag_CheckedChanged(object sender, EventArgs e)
         {
@@ -145,6 +151,20 @@ namespace ImageTask1
         private void meanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OperationsForm f = new OperationsForm(((MDIForm)ActiveMdiChild), Operations.MeanFilter);
+            this.IsAccessible = false;
+            f.ShowDialog();
+            this.IsAccessible = true;
+        }
+
+        private void sobalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //MaskMatrix f = new MaskMatrix();
+            //f.Show();
+        }
+
+        private void filtersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MaskMatrix f = new MaskMatrix(((MDIForm)ActiveMdiChild));
             this.IsAccessible = false;
             f.ShowDialog();
             this.IsAccessible = true;

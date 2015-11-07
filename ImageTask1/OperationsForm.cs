@@ -18,6 +18,7 @@ namespace ImageTask1
         SobalFilter,
         Contrast,
         Gamma,
+        Laplacian,
     }
     public partial class OperationsForm : Form
     {
@@ -65,7 +66,7 @@ namespace ImageTask1
         {
             if (Op == Operations.Contrast)
                 After = ImageOperation.Contrast(Before, Slider.Value);
-            else
+            else if(Op==Operations.Brighthness)
                 After = ImageOperation.Brightness(Before, Slider.Value);
             this.AfterPictureBox.Image = After.bitmap;
         }

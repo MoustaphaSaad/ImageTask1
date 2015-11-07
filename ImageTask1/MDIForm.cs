@@ -13,17 +13,16 @@ namespace ImageTask1
     public partial class MDIForm : Form
     {
         public Image img { get; set; }
-        public Image tmp { get; set; }
         public MDIForm()
-        { InitializeComponent(); }
+        { 
+            InitializeComponent(); 
+        }
         public MDIForm(ref Image Img,MainForm Parent)
         {
             InitializeComponent();
-            img = Img.Clone();
-            this.Dock = DockStyle.Fill;
-
-            this.Width = (int)img.Width;
-            this.Height = (int)img.Height;
+            img = Img.Clone();         
+            //this.Dock = DockStyle.Fill;
+            this.WindowState = FormWindowState.Maximized;
             MDIPicture.Width = (int)img.Width;
             MDIPicture.Height = (int)img.Height;
             Parent.IsMdiContainer = true;
@@ -31,14 +30,10 @@ namespace ImageTask1
             MDIPicture.Image = img.bitmap;
             this.Show();
         }
-
         public void UpdateIMG()
         {
             this.MDIPicture.Image = img.bitmap;
         }
-        public void UpdateTMP()
-        {
-            this.MDIPicture.Image = tmp.bitmap;
-        }
+
     }
 }

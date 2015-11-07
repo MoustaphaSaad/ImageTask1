@@ -241,7 +241,7 @@
             this.Controls.Add(this.AfterPictureBox);
             this.Controls.Add(this.BeforePictureBox);
             this.Name = "OperationsForm";
-            this.Text = "OperationsForm";
+            this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.BeforePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AfterPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Slider)).EndInit();

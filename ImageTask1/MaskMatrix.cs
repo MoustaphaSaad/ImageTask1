@@ -18,11 +18,19 @@ namespace ImageTask1
         private TextBox[,] boxes;
         private Point boxLocation;
         private Point Origin;
+        Image After, Before; MDIForm form;
         public MaskMatrix()
         {
             InitializeComponent();
         }
-
+        public MaskMatrix(MDIForm f)
+        {
+            InitializeComponent();
+            form = f;
+            Before = f.img.Clone();
+            AfterPictureBox.Image = f.img.bitmap;
+            BeforePictureBox.Image = f.img.bitmap;
+        }
         private void Generate_Click(object sender, EventArgs e)
         {
             if (WidthBox.Text == "" || HeightBox.Text == "")
@@ -58,7 +66,6 @@ namespace ImageTask1
                 }
             }
         }
-
         private void Fill_Click(object sender, EventArgs e)
         {
             Origin.X = Convert.ToInt32(OriginXBox.Text);
@@ -103,6 +110,69 @@ namespace ImageTask1
                 }
             }
             return (sum == 0);
+        }
+
+        private void ApplyButton_Click(object sender, EventArgs e)
+        {
+            int width=int.Parse(WidthBox.Text);
+            int height=int.Parse(HeightBox.Text);
+            int originx=int.Parse(OriginXBox.Text);
+            int originy=int.Parse(OriginYBox.Text);
+            if (comboBox1.SelectedIndex==0)//mean filter
+            {
+                if(RadioButton1D.Checked)
+                {
+                    double[] values=new double[width];
+                    for(int i=0;i<width;++i)
+                    values[i]=(double)1/width;
+                    After = ImageOperation.LinearFilter1d(Before, values, originx, originy, ImageOperation.PostProcessing.NO);
+                }
+                else if(RadioButton2D.Checked)
+                {
+
+                }
+            }
+            else if(comboBox1.SelectedIndex==1)//sobal filter
+            {
+                if (RadioButton1D.Checked)
+                { }
+                else if(RadioButton2D.Checked)
+                { }
+            }
+            this.AfterPictureBox.Image = After.bitmap;
+        }
+
+        private void PreviewButton_Click(object sender, EventArgs e)
+        {
+            int width = int.Parse(WidthBox.Text);
+            int height = int.Parse(HeightBox.Text);
+            int originx = int.Parse(OriginXBox.Text);
+            int originy = int.Parse(OriginYBox.Text);
+            if (comboBox1.SelectedIndex == 0)//mean filter
+            {
+                if (RadioButton1D.Checked)
+                {
+                    double[] values = new double[width];
+                    for (int i = 0; i < width; ++i)
+                        values[i] = (double)1 / width;
+                    form.img = ImageOperation.LinearFilter1d(form.img, values, originx, originy, ImageOperation.PostProcessing.NO);
+                }
+                else if (RadioButton2D.Checked)
+                {
+
+                }
+            }
+            else if (comboBox1.SelectedIndex == 1)//sobal filter
+            {
+                if (RadioButton1D.Checked)
+                { }
+                else if (RadioButton2D.Checked)
+                { }
+            }
+            /*PictureBox pic = form.Controls["MDIPicture"] as PictureBox;
+            pic.Image = form.img.bitmap;*/
+            form.UpdateIMG();
+            this.Close();
         }
     }
 }

@@ -34,7 +34,7 @@
             // 
             // MDIPicture
             // 
-            this.MDIPicture.Location = new System.Drawing.Point(84, 34);
+            this.MDIPicture.Location = new System.Drawing.Point(87, 96);
             this.MDIPicture.Name = "MDIPicture";
             this.MDIPicture.Size = new System.Drawing.Size(100, 50);
             this.MDIPicture.TabIndex = 0;
@@ -48,6 +48,7 @@
             this.Controls.Add(this.MDIPicture);
             this.Name = "MDIForm";
             this.Text = "MDIForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.MDIPicture)).EndInit();
             this.ResumeLayout(false);
 
